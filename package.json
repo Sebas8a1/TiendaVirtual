@@ -1,0 +1,21 @@
+{
+  "name": "supermastersciclo4",
+  "version": "1.0.0",
+  "description": "Proyecto del Ciclo 4 para MinTic UdeA",
+  "main": "server.js",
+  "scripts": {
+    "start": "node back/server.js",
+    "dev": "SET NODE_ENV = DEVELPMENT& nodemon back/server.js",
+    "prod": "SET NODE_ENV = PRODUCTION& nodemon back/server.js"
+  },
+  "author": "Jesus",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
