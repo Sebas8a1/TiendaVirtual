@@ -1,10 +1,28 @@
 const producto = require('../models/productos');
+const fetch = (url) => import('node-fetch').then(({default: fetch}) => fetch(url));
 
 // View list for all products => /api/v1/products
-exports.getProducts = (req, res, next) => {
-   res.status(200).json({
+exports.getProducts = async(req, res, next) => {
+    const productos = await producto.find();
+    res.status(200).json({
         success: true,
-        message: "This route will show all products in the database."
+        count : productos.length,
+        productos
+    });
+}
+
+// View a product based on id => /api/v1/product/:id
+exports.getProductById = async(req, res, next) => {
+    const productoById = await producto.findById(req.params.id);
+    if(!productoById){
+        return res.status(404).json({
+            success: false,
+            message: 'Producto no encontrado'
+        });
+    }
+    res.status(200).json({
+        success: true,
+        productoById
     });
 }
 
@@ -16,3 +34,61 @@ exports.newProduct = async(req, res, next) => {
         product
     });
 }
+
+// Update a product based on id => /api/v1/admin/product/:id
+exports.updateProduct = async(req, res, next) => {
+    let productUpdate = await producto.findById(req.params.id);
+    if(!productUpdate){
+        return res.status(404).json({
+            success: false,
+            message: 'Producto no encontrado'
+        });
+    }
+    productUpdate = await producto.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+    });
+    res.status(200).json({
+        success: true,
+        productUpdate
+    });
+}
+
+// Delete a product based on id => /api/v1/admin/product/:id
+exports.deleteProduct = async(req, res, next) => {
+    const productDelete = await producto.findById(req.params.id);
+    if(!productDelete){
+        return res.status(404).json({
+            success: false,
+            message: 'Producto no encontrado'
+        });
+    }
+    await productDelete.remove();
+    res.status(200).json({
+        success: true,
+        message: 'Producto eliminado'
+    });
+}
+
+// View all products with fetch
+function verProductos(){
+    fetch('http://localhost:4000/api/v1/products')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => console.log(err));
+}   
+/* verProductos(); */
+
+// View a product based on id with fetch
+function verProductoById(id){
+    fetch('http://localhost:4000/api/v1/product/'+id)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(err => console.log(err));
+}
+/* verProductoById('634d0130e6a5f304d4fc3da4'); */
