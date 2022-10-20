@@ -1,8 +1,19 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
+import { Metadata } from './layout/Metadata'
+import {useSelector, useDispatch} from 'react-redux';
+import {getProducts} from '../actions/productActions';
 
 export const Home = () => {
-  return (
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [dispatch]);
+
+
+    return (
     <Fragment>
+      <Metadata title = "De todo para tu hogar"></Metadata>
+      <h1 id="home_heading">Welcome to ProShop Super Master's</h1>
       <h1 id="Encabezado productos" className="text-center">Productos</h1>
       <section id="prductos" className="container mt-5"> 
         <div className="row">
