@@ -1,12 +1,14 @@
 
 import './App.css';
 import React from 'react';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 
 function App() {
   return (
     <div className="App">
-    <h1>Cacharreria Super Master's</h1>
-    <img src="./images/super-masters-logo.png" alt="Aca deberia ir un logo" class="App-logo"></img>
+      <Header />
+      <Footer />
     </div>
   );
 }
