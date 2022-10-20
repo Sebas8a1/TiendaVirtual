@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 const Header = () => {
     return (
     <Fragment>
-        <nav className="navbar row ">
+        <nav className="navbar row navbar-expand-lg navbar-dark bg-dark">
             <div className="col-12 col-md-3">
                 <div className="navbar-brand">
                     <img src="./images/cacharreria1.png" alt="Aca deberia ir un logo" class="App-logo"></img>
