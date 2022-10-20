@@ -29,10 +29,10 @@ export const Footer = () => {
                             <i className="fas fa-info-circle"></i> Informacion
                         </h4>
                         <div className="d-flex flex-column flex-wrap">
-                            <button onClick=""  className="footer-link">Sobre Nosotros</button>
-                            <button onClick=""  className="footer-link">Politicas de Privacidad</button>
-                            <button onClick=""  className="footer-link">Terminos y Condiciones</button>
-                            <button onClick=""  className="footer-link">Ayuda</button>
+                            <a href="#"  className="footer-link">Sobre Nosotros</a>
+                            <a href="#"  className="footer-link">Politicas de Privacidad</a>
+                            <a href="#"  className="footer-link">Terminos y Condiciones</a>
+                            <a href="#"  className="footer-link">Ayuda</a>
                         </div>
                     </div>
 
@@ -41,10 +41,10 @@ export const Footer = () => {
                             <i className="fas fa-exchange-alt"></i> Politicas
                         </h4>
                         <div className="d-flex flex-column flex-wrap">
-                            <button onClick=""  className="footer-link">Politicas de Envio</button>
-                            <button onClick=""  className="footer-link">Politicas de Devolucion</button>
-                            <button onClick=""  className="footer-link">Politicas de Pago</button>
-                            <button onClick=""  className="footer-link">Politicas de Seguridad</button>
+                            <a href="#"  className="footer-link">Politicas de Envio</a>
+                            <a href="#"  className="footer-link">Politicas de Devolucion</a>
+                            <a href="#"  className="footer-link">Politicas de Pago</a>
+                            <a href="#"  className="footer-link">Politicas de Seguridad</a>
                         </div>
                     </div>
 
@@ -67,21 +67,21 @@ export const Footer = () => {
                                 <i className="fas fa-paper-plane"></i> Sigueme
                             </h5>
                             <div className="d-flex flex-row">
-                                <button onClick="" className="social-link">
+                                <a href="#" className="social-link">
                                     <i className="fab fa-facebook-f"></i>
-                                </button>
-                                <button onClick=""  className="social-link">
+                                </a>
+                                <a href="#"  className="social-link">
                                     <i className="fab fa-twitter"></i>
-                                </button>
-                                <button onClick=""  className="social-link">
+                                </a>
+                                <a href="#"  className="social-link">
                                     <i className="fab fa-instagram"></i>
-                                </button>
-                                <button onClick=""  className="social-link">
+                                </a>
+                                <a href="#"  className="social-link">
                                     <i className="fab fa-google-plus-g"></i>
-                                </button>
-                                <button onClick=""  className="social-link">
+                                </a>
+                                <a href="#"  className="social-link">
                                     <i className="fab fa-linkedin-in"></i>
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

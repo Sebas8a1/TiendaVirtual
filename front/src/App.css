@@ -618,3 +618,9 @@ ul.CTAs a {
 .App-logo {
   height: 30px;
 }
+
+.fa-cart-shopping {
+  color: #eeeeee;
+  margin-left: 5px;
+  margin-right: 5px;
+}
