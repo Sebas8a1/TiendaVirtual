@@ -3,11 +3,18 @@ const fetch = (url) => import('node-fetch').then(({default: fetch}) => fetch(url
 
 // View list for all products => /api/v1/products
 exports.getProducts = async(req, res, next) => {
-    const productos = await producto.find();
+    const products = await producto.find();
+    if (!products) {
+        return res.status(404).json({
+            success: false,
+            message: 'No hay productos',
+            error: true
+        });
+    }
     res.status(200).json({
         success: true,
-        count : productos.length,
-        productos
+        count : products.length,
+        products
     });
 }
 

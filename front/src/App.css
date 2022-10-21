@@ -624,3 +624,30 @@ ul.CTAs a {
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.card-img-top {
+  width: 200px;
+  height: 250px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+.card-title a:hover {
+  color: #7f5326;
+  text-decoration: none;
+  font-weight: 500;
+}
