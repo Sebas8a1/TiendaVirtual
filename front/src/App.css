@@ -32,7 +32,7 @@ nav {
 }
 
 #search_btn {
-  background-color: #febd69;
+  background-color: #e2e5e5;
 }
 
 .input-group {
@@ -47,7 +47,7 @@ f
 
 #login_btn,
 #view_btn {
-  background-color: #febd69;
+  background-color: #e2e5e5;
   padding: 0.4rem 1.8rem;
   font-family: calibri;
 }
@@ -58,7 +58,7 @@ f
 }
 
 #cart_count {
-  background-color: #febd69;
+  background-color: #e2e5e5;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
   color: black;
