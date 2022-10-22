@@ -20,8 +20,8 @@ exports.getProducts = async(req, res, next) => {
 
 // View a product based on id => /api/v1/product/:id
 exports.getProductById = async(req, res, next) => {
-    const productoById = await producto.findById(req.params.id);
-    if(!productoById){
+    const productById = await producto.findById(req.params.id);
+    if(!productById){
         return res.status(404).json({
             success: false,
             message: 'Producto no encontrado'
@@ -29,7 +29,7 @@ exports.getProductById = async(req, res, next) => {
     }
     res.status(200).json({
         success: true,
-        productoById
+        productById
     });
 }
 

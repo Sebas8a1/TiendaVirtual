@@ -22,7 +22,7 @@ export const Home = () => {
     <Fragment>
       {loading ? <i class="fas fa-cog fa-spin"></i>: (
         <Fragment>
-          <Metadata title={'Buy Best Products Online'} />
+          <Metadata title={'Find the most awesome collection of books nline'} />
           <h1 id="products_heading">Latest Products</h1>
           <section id="products" className="container mt-5">
             <div className="row">

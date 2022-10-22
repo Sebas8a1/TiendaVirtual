@@ -6,7 +6,7 @@ const Header = () => {
         <nav className="navbar row navbar-expand-lg navbar-dark bg-dark">
             <div className="col-12 col-md-3">
                 <div className="navbar-brand">
-                    <img src="./images/cacharreria2.png" alt="Aca deberia ir un logo" class="App-logo"></img>
+                    <img src=".\images\bookstore.png" alt="Aca deberia ir un logo" class="App-logo"></img>
             </div>
         </div>
 
