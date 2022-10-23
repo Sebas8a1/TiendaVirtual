@@ -45,7 +45,7 @@ export const Home = () => {
                         <span id="no_of_reviews">({product.numCalificaciones} Reviews)</span>
                       </div>
                       <p className="card-text">${product.precio}</p>
-                      <Link to={`/product/${product._id}`} id="view_btn" className="btn w-80">View Details</Link>
+                      <Link to={`/product/${product._id}`} id="view_btn" className="button">View Details</Link>
                     </div>
                   </div>
                 </div>
