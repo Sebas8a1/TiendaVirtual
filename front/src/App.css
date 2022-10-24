@@ -31,8 +31,10 @@ nav {
   padding: 1rem 1rem;
 }
 
-#search_btn {
-  background-color: #e2e5e5;
+#search_btn:hover {
+  background-color: #2551df;
+  color: white;
+  padding: 0.4rem 1.8rem;
 }
 
 .input-group {
@@ -42,12 +44,41 @@ nav {
 f
 #search_field {
   height: 2.4rem;
-  padding: 1rem;
+  padding: 0.4rem 1.8rem;
+  margin: 2px;
+  
 }
 
-#login_btn,
-#view_btn {
-  background-color: #e2e5e5;
+.button {
+  background-color: #e2e5e5; 
+  border: 1px solid #070707;
+  color: black;
+  padding: 0.4rem 1.8rem;
+  border-radius: 4px;
+  font-family: calibri;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+
+
+#login_button:hover{
+  background-color: #2551df;
+  color: white;
+  padding: 0.4rem 1.8rem;
+  font-family: calibri;
+  
+
+
+}
+
+
+
+
+#view_btn:hover {
+  background-color: #009EF6;
+  color: white;
   padding: 0.4rem 1.8rem;
   font-family: calibri;
 }
@@ -61,6 +92,8 @@ f
   background-color: #e2e5e5;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border: 1px solid #070707;
   color: black;
   font-weight: bold;
   font-size: 0.9rem;
@@ -93,7 +126,8 @@ f
 }
 
 #view_btn {
-  background-color: #fa9c23;
+  background-color: #1b67bd;
+  text-align:center;
   color: white;
 }
 
@@ -166,6 +200,8 @@ footer {
   border: none;
   padding: 0.5rem 2rem;
 }
+
+
 
 #product_seller {
   color: grey;
@@ -286,9 +322,12 @@ footer {
   margin: 0;
 }
 
+.form-control,
 .form-control:disabled,
 .form-control[readonly] {
   background-color: white;
+  border: 1px solid #070707;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 /* Login & Register */

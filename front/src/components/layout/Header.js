@@ -14,13 +14,13 @@ const Header = () => {
                 <div className="input-group">
                     <input type="text" id="search_field" class="form-control" placeholder="Buscar productos..."/>
                     <div class="input-group-append">
-                        <button id="search_btn" class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button id="search_btn" className="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
 
             <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-                <button className="btn" id="login_btn">Iniciar Sesión</button>
+                <button className="button" id="login_button">Iniciar Sesión</button>
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span className="ml-1" id="cart_count">2</span>
             </div>
