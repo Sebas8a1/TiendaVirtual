@@ -65,8 +65,8 @@ export const ProductDetails = () => {
                             <p id="product_price">${productById.precio}</p>
                             <div className="stockCounter d-inline">
                                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
-                                <input type="number" className="form-control count d-inline" value={quantity} readOnly />
-                                <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
+                                <input type="number" className="form-control-sm count d-inline" value={quantity} readOnly />
+                                <span className="btn btn-primary plus"  onClick={increaseQty}>+</span>
                             </div>
                             <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4">Add to Cart</button>
                             <hr />
