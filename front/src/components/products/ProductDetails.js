@@ -48,7 +48,7 @@ export const ProductDetails = () => {
                             <Carousel pause='hover'>
                                 {productById.imagen && productById.imagen.map(image => (
                                     <Carousel.Item key={image.public_id}>
-                                        <img className="d-block w-100   " src={"."+image.url} alt={productById.nombre} />
+                                        <img className="d-block w-100   " src={"." + image.url} alt={productById.nombre} />
                                     </Carousel.Item>
                                 ))}
                             </Carousel>
@@ -66,7 +66,7 @@ export const ProductDetails = () => {
                             <div className="stockCounter d-inline">
                                 <span className="btn btn-danger minus" onClick={decreaseQty}>-</span>
                                 <input type="number" className="form-control-sm count d-inline" value={quantity} readOnly />
-                                <span className="btn btn-primary plus"  onClick={increaseQty}>+</span>
+                                <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
                             </div>
                             <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4">Add to Cart</button>
                             <hr />
@@ -91,6 +91,8 @@ export const ProductDetails = () => {
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
+                                                
+
                                                 <div className="modal-body">
                                                     <ul className="stars">
                                                         <li className="star"><i className="fa fa-star"></i></li>
@@ -116,5 +118,5 @@ export const ProductDetails = () => {
         </Fragment>
     )
 
-    
+
 }
