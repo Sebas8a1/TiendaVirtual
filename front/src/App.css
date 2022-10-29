@@ -689,6 +689,22 @@ ul.CTAs a {
   margin-right: 5px;
 }
 
+.fa-trash-can {
+  color:red;
+}
+
+.fa-trash-can:hover {
+  color:rgb(182, 59, 59);
+}
+
+.fa-file-pen{
+  color:darkblue
+}
+
+.fa-file-pen:hover{
+  color:#009EF6
+}
+
 .card-img-top {
   width: 200px;
   height: 250px;

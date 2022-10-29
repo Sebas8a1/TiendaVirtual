@@ -10,6 +10,7 @@ import { Dashboard } from './components/admin/Dashboard';
 import { Productlist } from './components/admin/Productlist';
 import NewProduct from './components/admin/NewProduct';
 import Cart from './components/cart/Cart';
+import EditProduct from './components/admin/EditProduct';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/admin/producList" element={<Productlist/>}/>
           <Route path="/admin/newproduct" element={<NewProduct/>}/>
           <Route path="/cart" element={<Cart/>}/>
+          <Route path="/admin/edit/:id" element={<EditProduct/>}/>
+
         </Routes>
       </div>
       <Footer />

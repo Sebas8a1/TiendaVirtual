@@ -22,6 +22,8 @@ export const Productlist = () => {
         alert.success("OK")
     }, [dispatch])
 
+    
+
     const setProducts = () => {
         const data = {
             columns: [
@@ -47,6 +49,15 @@ export const Productlist = () => {
                     sort: "asc"
                 },
 
+                {
+                    label: "Edit",
+                    field: "edit",
+                 },
+                 {
+                    label: "Delete",
+                    field: "delete",
+                 },
+
             ],
             rows: []
         }
@@ -55,7 +66,9 @@ export const Productlist = () => {
                 id:producto._id,
                 nombre: producto.nombre,
                 precio: `$${producto.precio}`,
-                inventario: producto.inventario,
+                inventario: producto.stock,
+                edit:<Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>,
+                delete:<Link to='/' className="fa-sharp fa-solid fa-trash-can icon-border"></Link>
                 
             })
         })
@@ -89,6 +102,38 @@ export const Productlist = () => {
 
                 </div>
             </div>
+
+            {/*Mensaje emergente para dejar opinion y calificacion
+            <div className="row mt-2 mb-5">
+                <div className="rating w-50">
+                  <div className="modal fade" id="editModal" tabIndex="-1" role="dialog"
+                  aria-labelledby='ratingModalLabel' aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="ratingModalLabel">Editar libro</h5>
+                          <button type="button" className='close' data-dismiss="modal" aria-label='Close'>
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div className="modal-body">
+                        <div class="form-group">
+                        <label class="control-label" for="nombre">Nombre:</label>
+                        <input class="form-control" id="nombre" required="required"  type="text">Nombre delproducto: {products.nombre}</input>
+                        </div>
+
+                          <textarea name="review" id="review" className="form-control mt3"></textarea>
+
+                          <button className="btn my-3 float-right review-btn px-4 text-white" 
+                          data-dismiss="modal" aria-label="Close">Enviar</button>
+                        
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>*/}
 
         </Fragment>
     )
