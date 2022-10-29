@@ -17,6 +17,7 @@ export const EditProduct = () => {
     const [quantity, setQuantity] = useState(1)
 
 
+
     useEffect(() => {
         dispatch(getProductDetails(id))
         if (error) {
@@ -42,7 +43,7 @@ export const EditProduct = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="name_field">Nombre</label>
-                                    <input type="text" id="name_field" className='form-control' value={productById.nombre}/>
+                                    <input type="text" id="name_field" className='form-control' defaultValue={productById.nombre}/>
                                     
                                   
                                 </div>
@@ -60,23 +61,38 @@ export const EditProduct = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="description_field">Descripcion</label>
-                                    <input type="text" id="description_field" className='form-control' value={productById.descripcion}/>
+                                    <input type="text" id="description_field" className='form-control' defaultValue={productById.descripcion}/>
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="category_field">Categoria</label>
-                                    <input type="text" id="categoria_field" className='form-control' value={productById.categoria}/>
+                                    <select id="categoria_field" className='form-control' defaultValue={productById.categoria}>
+                                        <option value="Biografias" >Biografias</option>
+                                        <option value="Cientificos" >Cientificos</option>
+                                        <option value="Comedia" >Comedia</option>
+                                        <option value="De referencia y consulta" >De referencia y consulta</option>
+                                        <option value="De viaje" >De viaje</option>
+                                        <option value="Ficcion" >Ficcion</option>
+                                        <option value="Juveniles" >Juveniles</option>
+                                        <option value="Libro de texto" >Libro de texto</option>
+                                        <option value="Literatura y linguisticos" >Literatura y linguisticos</option>
+                                        <option value="Monografias" >Monografias</option>
+                                        <option value="Novelas" >Novelas</option>
+                                        <option value="Poeticos" >Poeticos</option>
+                                        <option value="Recreativos" >Recreativos</option>
+
+                                    </select>
 
                                     
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="stock_field">Inventario</label>
-                                    <input type="text" id="stock_field" className='form-control' value={productById.stock}/>
+                                    <input type="text" id="stock_field" className='form-control' defaultValue={productById.stock}/>
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="seller_field">Vendedor</label>
-                                    <input type="text" id="vendedor_field" className='form-control' value={productById.vendedor}/>
+                                    <input type="text" id="vendedor_field" className='form-control' defaultValue={productById.vendedor} />
                                 </div>
 
                                 <div className='form-group'>
@@ -89,6 +105,7 @@ export const EditProduct = () => {
                                             className='custom-file-input'
                                             id='customFile'
                                             multiple
+                                            
                                         />
                                         <label className='custom-file-label' htmlFor='customFile'>
                                             Seleccione Imagen
