@@ -12,7 +12,7 @@ export const Sidebar = () => {
                     {/*Botones de productos*/}
                     <li>
                         <a href="#productSubMenu" data-toggle="collapse" aria-expanded="false" 
-                        className="dropdown-toggle"><i className="fa fa-product-hunt"></i>Libros</a>
+                        className="btn btn-secondary dropdown-toggle"><i className="fa fa-product-hunt"></i>Libros</a>
                         <ul className="collapse list-unstyled" id="productSubMenu">
                             <li>
                                 <Link to="/admin/producList"><i className="fa fa-clipboard"></i>Lista de libros</Link>

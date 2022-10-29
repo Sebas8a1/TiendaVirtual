@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: 'Amazon Ember';
+  font-family: 'calibri';
   width: 100%;
   height: 100%;
   margin: 0px;
@@ -328,6 +328,10 @@ footer {
   background-color: white;
   border: 1px solid #070707;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.form-group{
+  font-family: calibri;
 }
 
 /* Login & Register */
