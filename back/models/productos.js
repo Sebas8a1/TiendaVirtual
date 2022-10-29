@@ -36,16 +36,19 @@ const productosSchema = moongose.Schema({
         required: [true, 'La categoria es obligatoria'],
         enum: {
             values: [
-                'Electronica',
-                'Camara',
-                'Laptop',
-                'Accesorios',
-                'Ropa',
-                'Zapatos',
-                'Juguetes',
-                'Libros',
-                'Audifonos',
-                'Otros'
+                'Cientificos',
+                'Literatura y linguisticos',
+                'De viajes',
+                'Biografias',
+                'Libro de texto',
+                'De referencia y consulta',
+                'Monografias',
+                'Recreativos',
+                'Poeticos',
+                'Juveniles',
+                'Ficcion',
+                'Comedia'
+
             ],
             message: 'Por favor seleccione una categoria correcta'
         }
