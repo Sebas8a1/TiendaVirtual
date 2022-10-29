@@ -39,7 +39,7 @@ export const getProductDetails = (id) => async (dispatch) => {
 
         dispatch({
             type: PRODUCT_DETAILS_SUCCESS,
-            payload: data.productById // productById is the name of the key in the response object
+            payload: data // payload: { productById: data.productById }
         });
 
     } catch (error) {
