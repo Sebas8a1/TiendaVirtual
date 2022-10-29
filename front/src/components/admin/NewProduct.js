@@ -47,7 +47,20 @@ const NewProduct = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="category_field">Categoria</label>
-                                    <select className="form-control" id="category_field">
+                                    <select id="categoria_field" className='form-control' >
+                                        <option value="Biografias" >Biografias</option>
+                                        <option value="Cientificos" >Cientificos</option>
+                                        <option value="Comedia" >Comedia</option>
+                                        <option value="De referencia y consulta" >De referencia y consulta</option>
+                                        <option value="De viaje" >De viaje</option>
+                                        <option value="Ficcion" >Ficcion</option>
+                                        <option value="Juveniles" >Juveniles</option>
+                                        <option value="Libro de texto" >Libro de texto</option>
+                                        <option value="Literatura y linguisticos" >Literatura y linguisticos</option>
+                                        <option value="Monografias" >Monografias</option>
+                                        <option value="Novelas" >Novelas</option>
+                                        <option value="Poeticos" >Poeticos</option>
+                                        <option value="Recreativos" >Recreativos</option>
 
                                     </select>
                                 </div>
