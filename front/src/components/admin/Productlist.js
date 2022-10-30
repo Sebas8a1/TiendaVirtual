@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { Metadata } from '../layout/Metadata'
 import Sidebar from './Sidebar'
-import {MDBDataTable} from 'mdbreact'
+import { MDBDataTable } from 'mdbreact'
 import { useEffect } from 'react'
 
 
@@ -22,15 +22,15 @@ export const Productlist = () => {
         alert.success("OK")
     }, [dispatch])
 
-    
+
 
     const setProducts = () => {
         const data = {
             columns: [
                 {
-                    label:"ID",
-                    field:"id",
-                    sort:"asc"
+                    label: "ID",
+                    field: "id",
+                    sort: "asc"
                 },
 
                 {
@@ -52,24 +52,24 @@ export const Productlist = () => {
                 {
                     label: "Edit",
                     field: "edit",
-                 },
-                 {
+                },
+                {
                     label: "Delete",
                     field: "delete",
-                 },
+                },
 
             ],
             rows: []
         }
         products.forEach(producto => {
             data.rows.push({
-                id:producto._id,
+                id: producto._id,
                 nombre: producto.nombre,
                 precio: `$${producto.precio}`,
                 inventario: producto.stock,
-                edit:<Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>,
-                delete:<Link to='/' className="fa-sharp fa-solid fa-trash-can icon-border"></Link>
-                
+                edit: <Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>,
+                delete: <Link to='/' className="fa-sharp fa-solid fa-trash-can icon-border"></Link>
+
             })
         })
         return data;
@@ -84,21 +84,21 @@ export const Productlist = () => {
                     <Sidebar />
                 </div>
                 <div className='col-12 col-md-10'>
-                <Fragment>
+                    <Fragment>
                         <h1 className='my-5'>Productos registrados</h1>
 
                     </Fragment>
-                {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>:(
-                    <MDBDataTable
-                    data={setProducts()}>
-                        className="px-3"
-                        bordered
-                        striped
-                        hover
-                        
-                    </MDBDataTable>
-                    
-                )}
+                    {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
+                        <MDBDataTable
+                            data={setProducts()}>
+                            className="px-3"
+                            bordered
+                            striped
+                            hover
+
+                        </MDBDataTable>
+
+                    )}
 
                 </div>
             </div>

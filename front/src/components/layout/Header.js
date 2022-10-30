@@ -21,7 +21,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
+                <div className="col-12 col-md-3  text-center">
                     <div className="ml-4 dropdown d-inline">
                         <Link to="#!" className="btn dropdown-toggle mr-4 mr-4" type="button"
                             id="dropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,8 +34,8 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <Link to="/cart"><i class="fa fa-shopping-cart fa-2x text-white" aria-hidden="false"></i>
-                        <span className="ml-1" id="cart_count">2</span></Link>
+                    <Link to="/cart"><i class="fa fa-shopping-cart fa-lg text-white" aria-hidden="false"></i>
+                    <button type="button" class="btn btn-secondary cart-count" disabled="">2</button></Link>
                 </div>
 
             </nav>
