@@ -67,7 +67,7 @@ export const Productlist = () => {
                 nombre: producto.nombre,
                 precio: `$${producto.precio}`,
                 inventario: producto.stock,
-                edit:<Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>,
+                edit: <Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>,
                 delete: <Link to='/' className="fa-sharp fa-solid fa-trash-can icon-border"></Link>
             })
         })
@@ -241,7 +241,7 @@ export const Productlist = () => {
                 </div>
             </div>
 
-            
+
 
 
         </Fragment>
