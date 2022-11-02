@@ -57,7 +57,9 @@ exports.getProductById= catchAsyncErrors( async (req, res, next)=>{
 
 // Create new product => /api/v1/product/new
 exports.newProduct = catchAsyncErrors( async(req, res, next) => {
+    req.body.user = req.user.id;
     const product = await producto.create(req.body);
+    
     if (!product){
         return next(new ErrorHandler("Producto no encontrado", 404))
     }

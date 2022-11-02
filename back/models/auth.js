@@ -2,6 +2,7 @@ const moongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 
 const userSchema = new moongoose.Schema({
     name: {
@@ -63,6 +64,20 @@ userSchema.methods.getJwtToken = function () {
     return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_TIME
     })
+}
+
+// Generate password reset token
+userSchema.methods.getResetPasswordToken = function () {
+    // Generate token
+    const resetToken = crypto.randomBytes(20).toString('hex'); // 20 bytes = 40 characters long string of hexadecimal numbers
+
+    // Hash and set to resetPasswordToken field
+    this.resetPasswordToken = crypto.createHash('sha256').update(resetToken).digest('hex'); // sha256 is a hashing algorithm that generates a 64 character long string of hexadecimal numbers from the resetToken
+
+    // Set token expire time
+    this.resetPasswordExpire = Date.now() + 30 * 60 * 1000; // 30 minutes from now
+
+    return resetToken;
 }
 
 module.exports = moongoose.model ( 'auth' , userSchema ) ;
