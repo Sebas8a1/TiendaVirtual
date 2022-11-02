@@ -43,9 +43,9 @@ export const EditProduct = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="name_field">Nombre</label>
-                                    <input type="text" id="name_field" className='form-control' defaultValue={productById.nombre}/>
-                                    
-                                  
+                                    <input type="text" id="name_field" className='form-control' defaultValue={productById.nombre} />
+
+
                                 </div>
 
                                 <div className="form-group">
@@ -61,7 +61,7 @@ export const EditProduct = () => {
 
                                 <div className="form-group">
                                     <label htmlFor="description_field">Descripcion</label>
-                                    <input type="text" id="description_field" className='form-control' defaultValue={productById.descripcion}/>
+                                    <input type="text" id="description_field" className='form-control' defaultValue={productById.descripcion} />
                                 </div>
 
                                 <div className="form-group">
@@ -83,11 +83,11 @@ export const EditProduct = () => {
 
                                     </select>
 
-                                    
+
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="stock_field">Inventario</label>
-                                    <input type="text" id="stock_field" className='form-control' defaultValue={productById.stock}/>
+                                    <input type="text" id="stock_field" className='form-control' defaultValue={productById.stock} />
                                 </div>
 
                                 <div className="form-group">
@@ -105,7 +105,7 @@ export const EditProduct = () => {
                                             className='custom-file-input'
                                             id='customFile'
                                             multiple
-                                            
+
                                         />
                                         <label className='custom-file-label' htmlFor='customFile'>
                                             Seleccione Imagen
