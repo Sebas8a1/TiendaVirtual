@@ -227,3 +227,4 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
         success: true
     })
 })
+
