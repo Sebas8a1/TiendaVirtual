@@ -133,116 +133,32 @@ export const Productlist = () => {
                   </div>
                 </div>
               </div>*/}
-
-
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" >Edit</button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+        
+        <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal">
+        Submit Your Review
                             </button>
-                        </div>
-                        <div class="modal-body">
-                            <form className="shadow-lg" encType='multipart/form-data'>
-                                <h1 className="mb-4">Editar Libro</h1>
+                            <div className="row mt-2 mb-5">
+                                <div className="rating w-50">
+                                    <div className="modal fade" id="ratingModal" tabIndex="-1" role="dialog" aria-labelledby="ratingModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog" role="document">
+                                            <div className="modal-content">
+                                                <div className="modal-header">
+                                                    <h5 className="modal-title" id="ratingModalLabel">Edite la informacion del libro</h5>
+                                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                
 
-                                <div className="form-group">
-                                    <label htmlFor="name_field">Nombre</label>
-                                    <input type="text" id="name_field" className='form-control' defaultValue="HP" />
-
-
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="price_field">Price</label>
-                                    <input
-                                        type="text"
-                                        id="price_field"
-                                        className="form-control"
-                                        value="$ 95000"
-
-                                    />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="description_field">Descripcion</label>
-                                    <input type="text" id="description_field" className='form-control' defaultValue="Primer libro" />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="category_field">Categoria</label>
-                                    <select id="categoria_field" className='form-control' defaultValue="Ficcion">
-                                        <option value="Biografias" >Biografias</option>
-                                        <option value="Cientificos" >Cientificos</option>
-                                        <option value="Comedia" >Comedia</option>
-                                        <option value="De referencia y consulta" >De referencia y consulta</option>
-                                        <option value="De viaje" >De viaje</option>
-                                        <option value="Ficcion" >Ficcion</option>
-                                        <option value="Juveniles" >Juveniles</option>
-                                        <option value="Libro de texto" >Libro de texto</option>
-                                        <option value="Literatura y linguisticos" >Literatura y linguisticos</option>
-                                        <option value="Monografias" >Monografias</option>
-                                        <option value="Novelas" >Novelas</option>
-                                        <option value="Poeticos" >Poeticos</option>
-                                        <option value="Recreativos" >Recreativos</option>
-
-                                    </select>
-
-
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="stock_field">Inventario</label>
-                                    <input type="text" id="stock_field" className='form-control' defaultValue="2" />
-                                </div>
-
-                                <div className="form-group">
-                                    <label htmlFor="seller_field">Vendedor</label>
-                                    <input type="text" id="vendedor_field" className='form-control' defaultValue="Yo" />
-                                </div>
-
-                                <div className='form-group'>
-                                    <label>Imagenes</label>
-
-                                    <div className='custom-file'>
-                                        <input
-                                            type='file'
-                                            name='product_images'
-                                            className='custom-file-input'
-                                            id='customFile'
-                                            multiple
-
-                                        />
-                                        <label className='custom-file-label' htmlFor='customFile'>
-                                            Seleccione Imagen
-                                        </label>
+                                                <div className="modal-body">
+                                                <iframe width="560" height="315" src="http://localhost:3000/admin/edit/63528c835685f576663a8382" ></iframe>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
-
-
-                                <button
-                                    id="login_button"
-                                    type="submit"
-                                    className="button py-2"
-                                >
-                                    Actualizar
-                                </button>
-
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send message</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+                            </div>
+        
 
         </Fragment>
     )

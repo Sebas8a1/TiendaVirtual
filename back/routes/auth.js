@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { registerUser, loginUser, forgotPassword, resetPassword, logout, getUserProfile, updatePassword, updateProfile, allUsers, getUserDetails, updateUser } = require('../controllers/authController.js'); // <-- import the controller from the controller file
+const { registerUser, loginUser, forgotPassword, resetPassword, logout, getUserProfile, updatePassword, updateProfile, allUsers, getUserDetails, updateUser, deleteUser } = require('../controllers/authController.js'); // <-- import the controller from the controller file
 const { isAuthenticatedUser, authorizeRoles } = require('../middleware/auth.js');
 
 // router.post('/register', registerUser); // <-- register a new user
@@ -34,6 +34,8 @@ router.route('/admin/users').get(isAuthenticatedUser, authorizeRoles('admin'), a
 router.route('/admin/user/:id').get(isAuthenticatedUser, authorizeRoles('admin'), getUserDetails); // <-- get user details
 // router.put('/admin/user/:id', isAuthenticatedUser, authorizeRoles('admin'), updateUser); // <-- update user
 router.route('/admin/user/:id').put(isAuthenticatedUser, authorizeRoles('admin'), updateUser); // <-- update user
+// router.delete('/admin/user/:id', isAuthenticatedUser, authorizeRoles('admin'), deleteUser); // <-- delete user
+router.route('/admin/user/:id').delete(isAuthenticatedUser, authorizeRoles('admin'), deleteUser); // <-- delete user
 
 
 
