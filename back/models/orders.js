@@ -5,13 +5,11 @@ const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
     user: {
-        name: String,
-        userId: {
-            type: Schema.Types.ObjectId,
-            ref: 'auth', // <-- reference the auth model in the auth.js file in the models folder
+            type:mongoose.Schema.Types.ObjectId,
+            ref: "auth", // <-- reference the auth model in the auth.js file in the models folder
             required: true
-        }
-    },
+        },
+    
     orderItems: [
         {
             name: { type: String, required: true },
