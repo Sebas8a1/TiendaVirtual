@@ -80,7 +80,10 @@ export const EditProduct = () => {
                                         <option value="Novelas" >Novelas</option>
                                         <option value="Poeticos" >Poeticos</option>
                                         <option value="Recreativos" >Recreativos</option>
-
+                                        <option value="Religiosos" >Religiosos</option>
+                                        <option value="Tecnicos" >Tecnicos</option>
+                                        <option value="Terror" >Terror</option>
+                                                                                
                                     </select>
 
 
