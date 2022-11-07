@@ -1,12 +1,14 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts } from '../../actions/productActions'
+import { getProducts,} from '../../actions/productActions'
 import { Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { Metadata } from '../layout/Metadata'
 import Sidebar from './Sidebar'
 import { MDBDataTable } from 'mdbreact'
-import { useEffect } from 'react'
+
+
+
 
 
 export const Productlist = () => {
@@ -67,9 +69,10 @@ export const Productlist = () => {
                 nombre: producto.nombre,
                 precio: `$${producto.precio}`,
                 inventario: producto.stock,
-                edit: <Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>,
+                edit:/* <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal" >Edit</button>, */
+                <Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>, 
                 delete: <Link to='/' className="fa-sharp fa-solid fa-trash-can icon-border"></Link>
-            })
+            });
         })
         return data;
     }
@@ -134,7 +137,7 @@ export const Productlist = () => {
                 </div>
               </div>*/}
         
-        <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal">
+       {/*  <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal">
         Submit Your Review
                             </button>
                             <div className="row mt-2 mb-5">
@@ -151,15 +154,19 @@ export const Productlist = () => {
                                                 
 
                                                 <div className="modal-body">
-                                                <iframe width="560" height="315" src="http://localhost:3000/admin/edit/63528c835685f576663a8382" ></iframe>
+                                                <div className="form-group">
+                                    <label htmlFor="description_field">Descripcion</label>
+                                    <input type="text" id="description_field" className='form-control' defaultValue="Pepito" />
+                                </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
         
 
         </Fragment>
     )
 }
+
