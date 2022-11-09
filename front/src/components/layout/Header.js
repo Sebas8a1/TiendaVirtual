@@ -13,14 +13,17 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className="col-12 col-md-6 mt-2 mt-md-0">
+                <div className="col-12 col-md-5 mt-2 mt-md-0">
                     {/*Here was Search Bar*/}
                     <Search/>
                 </div>
-
-                <div className="col-12 col-md-3  text-center">
+                <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
+                <Link to="/login" type="button" className="button m-4" id="login_button">Login</Link>
+                    <b/>
+                    <b/>
+                    <b/>
                     <div className="ml-4 dropdown d-inline">
-                        <Link to="#!" className="btn dropdown-toggle mr-4 mr-4" type="button"
+                        <Link to="#!" className="btn dropdown-toggle mr-4" type="button"
                             id="dropDownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span>Panel de control</span> </Link>
                         <div className="dropdown-menu" aria-labelledby="dropDownMenu">

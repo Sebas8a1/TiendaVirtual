@@ -11,11 +11,13 @@ import {
 } from '../constants/productConstants';
 
 // Get all products
-export const getProducts = ( currentPage =1,keyword='') => async (dispatch) => {
+export const getProducts = ( currentPage =1,keyword='',precio) => async (dispatch) => {
     try {
         dispatch({ type: ALL_PRODUCTS_REQUEST });
 
-        const { data } = await axios.get(`/api/v1/products?keyword=${keyword}&page=${currentPage}`);
+        let link=`/api/v1/products?keyword=${keyword}&page=${currentPage}&precio[gte]=${precio[0]}&precio[lte]=${precio[1]}`
+
+        const { data } = await axios.get(link);
 
         dispatch({
             type: ALL_PRODUCTS_SUCCESS,
