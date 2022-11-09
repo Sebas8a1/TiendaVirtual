@@ -1,26 +1,38 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Metadata } from './layout/Metadata'
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from '../actions/productActions';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useAlert } from 'react-alert';
+import Pagination from 'react-js-pagination'
+
 
 export const Home = () => {
-  const { products, loading, error } = useSelector(state => state.products);
+  const [currentPage, setCurrentPage] = useState(1)
+  const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products);
   const alert = useAlert();
+  const params = useParams();
+  const keyword = params.keyword;
+
+
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (error) {
       return alert.error(error);
     }
-    dispatch(getProducts());
+    dispatch(getProducts(currentPage, keyword));
     alert.success("ok");
-  }, [dispatch]);
+  }, [dispatch, alert, error, currentPage, keyword]);
+
+  function setCurrentPageNo(pageNumber) {
+    setCurrentPage(pageNumber) //param sent from onChange button
+  }
 
 
   return (
     <Fragment>
-      {loading ? <i class="fas fa-cog fa-spin"></i>: (
+      {loading ? <i class="fas fa-cog fa-spin"></i> : (
         <Fragment>
           <Metadata title={'Find the most awesome collection of books nline'} />
           <h1 id="products_heading">Latest Products</h1>
@@ -49,9 +61,24 @@ export const Home = () => {
                     </div>
                   </div>
                 </div>
+
               ))}
             </div>
           </section>
+          <div className='d-flex justify-content-center mt-5'>
+            <Pagination
+              activePage={currentPage}
+              itemsCountPerPage={resPerPage}
+              totalItemsCount={productsCount}
+              onChange={setCurrentPageNo}
+              nextPageText={'Next'}
+              prevPageText={'Previous'}
+              firstPageText={'First'}
+              lastPageText={'Last'}
+              itemClass='page-item' //Class from bootstrap for buttons
+              linkClass='page-link'
+            />
+          </div>
         </Fragment>
       )}
     </Fragment>
