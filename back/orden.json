@@ -8,7 +8,7 @@
         "product" : "63528c835685f576663a8382",
         "name" : "El hobbit",
         "price" : 94000,
-        "image" : "./images/libros/The_Hobbit.png",
+        "image" : "../images/libros/The_Hobbit.png",
         "qty" : 1
         }
     ],

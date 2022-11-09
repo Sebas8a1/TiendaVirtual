@@ -6,7 +6,7 @@ const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(u
 // View list for all products => /api/v1/products
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
 
-    const resPerPage = 3;
+    const resPerPage = 4;
     const productsCount = await producto.countDocuments();
 
     const apiFeatures = new APIFeatures(producto.find(), req.query)
@@ -31,11 +31,11 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     if (!productos) {
         return next(new ErrorHandler("Informacion no encontrada", 404))
     }
-    res.status(200).json({
+    /* res.status(200).json({
         success: true,
         count: products.length,
         products
-    });
+    }); */
 })
 
 // View a product based on id => /api/v1/product/:id
