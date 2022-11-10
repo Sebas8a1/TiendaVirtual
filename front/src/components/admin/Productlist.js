@@ -22,7 +22,7 @@ export const Productlist = () => {
         }
         dispatch(getProducts());
         alert.success("OK")
-    }, [dispatch,alert,error])
+    }, [dispatch])
 
 
 

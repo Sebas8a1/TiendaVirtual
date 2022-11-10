@@ -11,15 +11,12 @@ import {
 } from '../constants/productConstants';
 
 // Get all products
-
-export const getProducts = ( currentPage =1,keyword='',precio) => async (dispatch) => {
+export const getProducts = ( keyword='', currentPage = 1 ) => async (dispatch) => {
     try {
         dispatch({ type: ALL_PRODUCTS_REQUEST });
 
-        let link=`/api/v1/products?keyword=${keyword}&page=${currentPage}&precio[gte]=${precio[0]}&precio[lte]=${precio[1]}`
-
-        const { data } = await axios.get(link);
-
+        let link = `/api/v1/products?keyword=${keyword}&page=${currentPage}`;
+        const { data } = await axios.get(link); // Path: back\src\routes\productRoutes.js
 
         dispatch({
             type: ALL_PRODUCTS_SUCCESS,
