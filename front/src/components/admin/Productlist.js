@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect} from 'react'
+import React, { Fragment, useEffect,useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts,} from '../../actions/productActions'
-import { Link } from 'react-router-dom'
+import { Link, useParams} from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { Metadata } from '../layout/Metadata'
 import Sidebar from './Sidebar'
@@ -12,17 +12,25 @@ import { MDBDataTable } from 'mdbreact'
 
 
 export const Productlist = () => {
-    const { loading, products, error } = useSelector(state => state.products)
-    const alert = useAlert();
+const [currentPage, setCurrentPage] = useState(1)
+  const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products);
+  const alert = useAlert();
+  const params = useParams();
+  const keyword = params.keyword;
+  const [precio, setPrecio] = useState([100, 300000])
 
     const dispatch = useDispatch();
     useEffect(() => {
         if (error) {
-            return alert.error(error)
+          return alert.error(error);
         }
-        dispatch(getProducts());
-        alert.success("OK")
-    }, [dispatch,alert,error])
+        dispatch(getProducts(currentPage, keyword, precio));
+        alert.success("ok");
+      }, [dispatch, alert, error, currentPage, keyword, precio]);
+    
+      function setCurrentPageNo(pageNumber) {
+        setCurrentPage(pageNumber) //param sent from onChange button
+      }
 
 
 

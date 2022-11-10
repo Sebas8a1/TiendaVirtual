@@ -18,10 +18,11 @@ export const getProducts = ( currentPage =1,keyword='',precio) => async (dispatc
         let link=`/api/v1/products?keyword=${keyword}&page=${currentPage}&precio[gte]=${precio[0]}&precio[lte]=${precio[1]}`
 
         const { data } = await axios.get(link);
+        
 
         dispatch({
             type: ALL_PRODUCTS_SUCCESS,
-            payload: data // payload: { products: data.products, productsCount: data.productsCount }
+            payload: data// payload: { products: data.products, productsCount: data.productsCount }
         });
 
     } catch (error) {
