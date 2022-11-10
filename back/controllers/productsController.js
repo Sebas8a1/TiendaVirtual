@@ -31,11 +31,11 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     if (!productos) {
         return next(new ErrorHandler("Informacion no encontrada", 404))
     }
-    /* res.status(200).json({
+    res.status(200).json({
         success: true,
         count: products.length,
         products
-    }); */
+    });
 })
 
 // View a product based on id => /api/v1/product/:id
@@ -180,10 +180,10 @@ exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
 exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     const product = await producto.findById(req.query.productId);
     const allReviews = product.reviews;
-    const reviews = product.reviews.filter(review => review._id.toString() !== req.query.id.toString());
-    const numCalificaciones = reviews.length;
+    const rev = product.reviews.filter(review => review._id.toString() !== req.query.id.toString());
+    const numCalificaciones = rev.length;
     
-    const calificacion = product.reviews.reduce((acc, item) => item.rating + acc, 0) / reviews.length;
+    const calificacion = rev.reduce((acc, item) => item.rating + acc, 0) / rev.length;
     
     await producto.findByIdAndUpdate(req.query.productId, {
         reviews,
