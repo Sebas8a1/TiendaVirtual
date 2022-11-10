@@ -37,23 +37,6 @@ nav {
   padding: 0.4rem 1.8rem;
 }
 
-#login_button:hover {
-  background-color: #2551df;
-  color: white;
-  padding: 0.4rem 1.8rem;
-  
-}
-
-#login_button {
-  padding: 0.4rem 1.8rem;
-  text-align: center;
-  vertical-align: middle;
-  
-  
-}
-
-
-
 .input-group {
   width: 90%;
   margin-right: 35%;
@@ -80,7 +63,15 @@ f
 
 
 
+#login_button:hover{
+  background-color: #2551df;
+  color: white;
+  padding: 0.4rem 1.8rem;
+  font-family: calibri;
+  
 
+
+}
 
 
 

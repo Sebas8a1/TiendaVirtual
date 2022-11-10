@@ -180,10 +180,10 @@ exports.getProductReviews = catchAsyncErrors(async (req, res, next) => {
 exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     const product = await producto.findById(req.query.productId);
     const allReviews = product.reviews;
-    const rev = product.reviews.filter(review => review._id.toString() !== req.query.id.toString());
-    const numCalificaciones = rev.length;
+    const reviews = product.reviews.filter(review => review._id.toString() !== req.query.id.toString());
+    const numCalificaciones = reviews.length;
     
-    const calificacion = rev.reduce((acc, item) => item.rating + acc, 0) / rev.length;
+    const calificacion = product.reviews.reduce((acc, item) => item.rating + acc, 0) / reviews.length;
     
     await producto.findByIdAndUpdate(req.query.productId, {
         reviews,
