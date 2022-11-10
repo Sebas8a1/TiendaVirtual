@@ -36,16 +36,46 @@ const productosSchema = moongose.Schema({
         required: [true, 'La categoria es obligatoria'],
         enum: {
             values: [
-                'Electronica',
-                'Camara',
-                'Laptop',
-                'Accesorios',
-                'Ropa',
-                'Zapatos',
-                'Juguetes',
-                'Libros',
-                'Audifonos',
-                'Otros'
+                'Cientificos',
+                'Literatura y linguisticos',
+                'De viajes',
+                'Biografias',
+                'Libro de texto',
+                'De referencia y consulta',
+                'Monografias',
+                'Recreativos',
+                'Poeticos',
+                'Juveniles',
+                'Ficcion',
+                'Comedia',
+                'Drama',
+                'Terror',
+                'Ciencia ficcion',
+                'Fantasia',
+                'Romance',
+                'Novela',
+                'Poesia',
+                'Teatro',
+                'Cuentos',
+                'Ensayos',
+                'Historia',
+                'Filosofia',
+                'Religion',
+                'Ciencias sociales',
+                'Ciencias naturales',
+                'Matematicas',
+                'Ciencias de la salud',
+                'Ciencias de la tierra',
+                'Ciencias de la computacion',
+                'Ciencias de la ingenieria',
+                'Ciencias economicas',
+                'Ciencias politicas',
+                'Ciencias de la educacion',
+                'Ciencias de la comunicacion',
+                'Ciencias de la administracion',
+                'Ciencias de la agricultura',
+                'Ciencias de la medicina',
+                'Ciencias de la fisica'
             ],
             message: 'Por favor seleccione una categoria correcta'
         }
@@ -78,6 +108,13 @@ const productosSchema = moongose.Schema({
             required: true
         }
     }],
+
+    user: {
+        type: moongose.Schema.ObjectId,
+        ref: 'User',
+        required: true
+    },
+
     fechaCreacion: {
         type: Date,
         default: Date.now

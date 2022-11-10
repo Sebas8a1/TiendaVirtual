@@ -1,22 +1,30 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Metadata } from './layout/Metadata'
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from '../actions/productActions';
-import { Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useAlert } from 'react-alert';
+import { Product } from './products/Product';
+import  Pagination  from 'react-js-pagination';
 
 export const Home = () => {
-  const { products, loading, error } = useSelector(state => state.products);
+  const params = useParams();
+  const keyword = params.keyword;
+  const [currentPage, setCurrentPage] = useState(1);
+  const { products, loading, error, resPerPage, productsCount } = useSelector(state => state.products);
   const alert = useAlert();
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
   useEffect(() => {
     if (error) {
       return alert.error(error);
     }
-    dispatch(getProducts());
+    dispatch(getProducts(keyword, currentPage));
     alert.success("ok");
-  }, [dispatch]);
+  }, [dispatch, alert, error, keyword, currentPage]);
 
+  function setCurrentPageNo(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
 
   return (
     <Fragment>
@@ -26,7 +34,8 @@ export const Home = () => {
           <h1 id="products_heading">Latest Products</h1>
           <section id="products" className="container mt-5">
             <div className="row">
-              {products.map(product => (
+              {products&&products.map(product => ( // Path: front\src\components\products\Product.js (products && products.map) => Natali
+                /* <Product key={product._id} product={product} /> */
                 <div key={product._id} className="col-sm-12 col-md-6 col-lg-3 my-3">
                   <div className="card p-3 rounded">
                     <img
@@ -52,6 +61,21 @@ export const Home = () => {
               ))}
             </div>
           </section>
+          
+          <div className="d-flex justify-content-center mt-5">
+          <Pagination 
+          activePage={currentPage}
+          itemsCountPerPage={resPerPage}
+          totalItemsCount={productsCount}
+          onChange={setCurrentPageNo}
+          nextPageText={'Next'}
+          prevPageText={'Prev'}
+          firstPageText={'First'}
+          lastPageText={'Last'}
+          itemClass="page-item"
+          linkClass="page-link"
+          />
+          </div>
         </Fragment>
       )}
     </Fragment>

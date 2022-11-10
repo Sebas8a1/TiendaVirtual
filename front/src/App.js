@@ -10,26 +10,31 @@ import { Dashboard } from './components/admin/Dashboard';
 import { Productlist } from './components/admin/Productlist';
 import NewProduct from './components/admin/NewProduct';
 import Cart from './components/cart/Cart';
+import EditProduct from './components/admin/EditProduct';
 
 function App() {
   return (
     <Router>
-    <div className="App">
-      <Header />
-      <div className="container container-fluid">
-        <Routes >
-          <Route path="/Home" element={<Home />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/product/:id" element={<ProductDetails/>} />
-          <Route path="/admin/dashboard" element={<Dashboard/>}/>
-          <Route path="/admin/producList" element={<Productlist/>}/>
-          <Route path="/admin/newproduct" element={<NewProduct/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-        </Routes>
+      <div className="App">
+        <Header />
+        <div className="container container-fluid">
+          <Routes >
+            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/producList" element={<Productlist />} />
+            <Route path="/admin/newproduct" element={<NewProduct />} />
+            <Route path="/search/:keyword" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/admin/edit/:id" element={<EditProduct />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
     </Router>
+
+
   );
 }
 
