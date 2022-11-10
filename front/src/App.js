@@ -11,6 +11,7 @@ import { Productlist } from './components/admin/Productlist';
 import NewProduct from './components/admin/NewProduct';
 import Cart from './components/cart/Cart';
 import EditProduct from './components/admin/EditProduct';
+import { Login } from './components/user/Login';
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
             <Route path="/search/:keyword" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/admin/edit/:id" element={<EditProduct />} />
+            <Route path="/search/:keyword" element={<Home/>}/>
+            <Route path="/login"element={<Login/>}/>
           </Routes>
         </div>
         <Footer />
