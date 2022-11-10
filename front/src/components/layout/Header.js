@@ -9,6 +9,7 @@ const Header = () => {
             <nav className="navbar row navbar-expand-lg navbar-dark bg-secondary">
                 <div className="col-12 col-md-3">
                     <div className="navbar-brand">
+
                         <Link to="/"><img src="../images/bookstore1.png" alt="Aca deberia ir un logo" class="App-logo"></img></Link>
                     </div>
                 </div>
@@ -16,6 +17,7 @@ const Header = () => {
                 <div className="col-12 col-md-5 mt-2 mt-md-0">
                     {/*Here was Search Bar*/}
                     <Search/>
+
                 </div>
                 <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
                 <Link to="/login" type="button" className="button m-4" id="login_button">Login</Link>

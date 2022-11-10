@@ -31,11 +31,11 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     if (!productos) {
         return next(new ErrorHandler("Informacion no encontrada", 404))
     }
-    res.status(200).json({
+    /* res.status(200).json({
         success: true,
         count: products.length,
         products
-    });
+    }); */
 })
 
 // View a product based on id => /api/v1/product/:id

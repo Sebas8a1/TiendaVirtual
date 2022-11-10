@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { Metadata } from './layout/Metadata'
 import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from '../actions/productActions';
+
 import { Link, useParams } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import Pagination from 'react-js-pagination'
@@ -21,10 +22,12 @@ export const Home = () => {
 
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (error) {
       return alert.error(error);
     }
+
     dispatch(getProducts(currentPage, keyword, precio));
     alert.success("ok");
   }, [dispatch, alert, error, currentPage, keyword, precio]);
@@ -34,6 +37,10 @@ export const Home = () => {
   }
 
 
+  function setCurrentPageNo(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
+
   return (
     <Fragment>
       {loading ? <i class="fas fa-cog fa-spin"></i> : (
@@ -42,6 +49,7 @@ export const Home = () => {
           <h1 id="products_heading">Latest Products</h1>
           <section id="products" className="container mt-5">
             <div className="row">
+
               <Slider
                 range
                 className='t-slider'
@@ -71,6 +79,7 @@ export const Home = () => {
               <br/>
               <br/>
               {products.map(product => (
+
                 <div key={product._id} className="col-sm-12 col-md-6 col-lg-3 my-3">
                   <div className="card p-3 rounded">
                     <img
@@ -97,6 +106,7 @@ export const Home = () => {
               ))}
             </div>
           </section>
+
           <div className='d-flex justify-content-center mt-5'>
             <Pagination
               activePage={currentPage}
@@ -110,6 +120,7 @@ export const Home = () => {
               itemClass='page-item' //Class from bootstrap for buttons
               linkClass='page-link'
             />
+
           </div>
         </Fragment>
       )}
