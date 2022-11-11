@@ -5,10 +5,10 @@ const { registerUser, loginUser, forgotPassword, resetPassword, logout, getUserP
 const { isAuthenticatedUser, authorizeRoles } = require('../middleware/auth.js');
 
 // router.post('/register', registerUser); // <-- register a new user
-router.route('/register').post(registerUser);
+router.route('/user/register').post(registerUser);
 
 // router.post('/login', loginUser); // <-- login a user
-router.route('/login').get(loginUser);
+router.route('/login').post(loginUser);
 
 // router.post('/password/forgot', forgotPassword); // <-- forgot password
 // router.put('/password/reset/:token', resetPassword); // <-- reset password

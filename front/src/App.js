@@ -12,6 +12,7 @@ import NewProduct from './components/admin/NewProduct';
 import Cart from './components/cart/Cart';
 import EditProduct from './components/admin/EditProduct';
 import { Login } from './components/user/Login';
+import { Register } from './components/user/Register';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/admin/edit/:id" element={<EditProduct />} />
             <Route path="/search/:keyword" element={<Home/>}/>
             <Route path="/login"element={<Login/>}/>
+            <Route path="/register" element={<Register/>}/>
           </Routes>
         </div>
         <Footer />
