@@ -1,0 +1,29 @@
+{
+  "name": "tiendavirtual",
+  "version": "1.0.0",
+  "description": "Tienda virtual de libros Los Super Masters",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "SET NODE_ENV = DEVELPMENT& nodemon backend/server.js",
+    "prod": "SET NODE_ENV = PRODUCTION& nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sebas8a1/TiendaVirtual.git"
+  },
+  "author": "Camila- Los Super Masters",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sebas8a1/TiendaVirtual/issues"
+  },
+  "homepage": "https://github.com/Sebas8a1/TiendaVirtual#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
