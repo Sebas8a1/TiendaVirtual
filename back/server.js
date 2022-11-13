@@ -1,5 +1,6 @@
 const app = require('./app');
 const connectDB = require('./config/database');
+const cloudinary=require("cloudinary")
 
 // Language: javascript
 // Path: back\server.js
@@ -10,6 +11,16 @@ dotenv.config({ path: 'back/config/config.env' });
 
 // Configura DB
 connectDB();
+
+//Configurar Cloudinary
+
+cloudinary.config({
+cloud_name:process.env.CLOUDINARY_CLOUD_NAME,
+api_key:process.env.CLOUDINARY_API_KEY,
+api_secret:process.env.CLOUDINARY_API_SECRET
+})
+
+
 
 
 // Configuracion del puerto segun archivo de configuracion

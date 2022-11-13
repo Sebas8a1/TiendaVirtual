@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 
 const userSchema = new moongoose.Schema({
-    name: {
+    nombre: {
         type: String,
         required: [true, 'Please enter your name'],
         maxLength: [30, 'Your name cannot exceed 30 characters']
