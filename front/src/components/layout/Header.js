@@ -7,6 +7,7 @@ import { useAlert } from 'react-alert'
 import { logout } from '../../actions/userActions'
 
 const Header = () => {
+    const {cartItems} = useSelector(state => state.cart)
     const alert = useAlert();
     const dispatch = useDispatch();
     const { user, loading } = useSelector(state => state.auth)
@@ -19,7 +20,7 @@ const Header = () => {
             <nav className="navbar row navbar-expand-lg navbar-dark bg-secondary">
                 <div className="col-12 col-md-3">
                     <div className="navbar-brand">
-                        <Link to="/"><img src="../images/bookstore1.png" alt="Aca deberia ir un logo" class="App-logo"></img></Link>
+                        <Link to="/"><img src="../images/bookstore1.png" alt="Aca deberia ir un logo" className="App-logo"></img></Link>
                     </div>
                 </div>
 
@@ -28,8 +29,8 @@ const Header = () => {
                     <Search/>
                 </div>
                 <div className="col-12 col-md-4 mt-4 mt-md-0 text-center">
-                <Link to="/cart"><i class="fa fa-shopping-cart fa-lg text-white" aria-hidden="false"></i>
-                    <button type="button" class="btn btn-secondary cart-count mx-2" disabled="">2</button></Link>
+                <Link to="/cart"><i className="fa fa-shopping-cart fa-lg text-white" aria-hidden="false"></i>
+                    <button type="button" className="btn btn-secondary cart-count mx-2" disabled="">{cartItems.length}</button></Link>
                     <b/>
                     <b/>
                     <b/>
