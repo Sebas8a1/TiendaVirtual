@@ -2,6 +2,7 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const producto = require('../models/productos');
 const APIFeatures = require('../utils/apiFeatures.js');
 const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url));
+const cloudinary=require("cloudinary")
 
 // View list for all products => /api/v1/products
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
@@ -73,6 +74,29 @@ exports.getProductById= catchAsyncErrors( async (req, res, next)=>{
 
 // Create new product => /api/v1/product/new
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
+    let imagen=[]
+    if(typeof req.body.imagen==="string"){
+        imagen.push(req.body.imagen)
+    }else{
+        imagen=req.body.imagen
+    }
+
+    let imagenLink=[]
+    for (let i=0;i<imagen.length;i++){
+        const result=await cloudinary.v2.uploader.upload(imagen[i],{
+            folder:"products"
+        })
+
+        imagenLink.push({
+            public_id:result.public_id,
+            url: result.secure_url
+        })
+    }
+
+    req.body.imagen=imagenLink
+    
+
+
     req.body.user = req.user.id;
     const product = await producto.create(req.body);
 
@@ -200,6 +224,17 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     });
 })
 
+// View list for all products (Admin)=> /api/v1/products
+exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+     const products= await producto.find()
+
+    res.status(200).json({
+        products
+    })
+
+})
+
+
 
 /* verProductos(); */
 
@@ -213,3 +248,4 @@ function verProductoById(id) {
         .catch(err => console.log(err));
 }
 /* verProductoById('634d0130e6a5f304d4fc3da4'); */
+
