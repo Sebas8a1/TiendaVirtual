@@ -94,7 +94,7 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
     }
 
     req.body.imagen=imagenLink
-
+    
 
 
     req.body.user = req.user.id;
@@ -248,5 +248,3 @@ function verProductoById(id) {
         .catch(err => console.log(err));
 }
 /* verProductoById('634d0130e6a5f304d4fc3da4'); */
-
-

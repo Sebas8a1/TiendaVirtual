@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts, } from '../../actions/productActions'
-import { Link, useParams } from 'react-router-dom'
+import { clearErrors, getAdminProducts } from '../../actions/productActions'
+import { Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { Metadata } from '../layout/Metadata'
 import Sidebar from './Sidebar'
@@ -12,27 +12,21 @@ import { MDBDataTable } from 'mdbreact'
 
 
 export const Productlist = () => {
-    const [currentPage, setCurrentPage] = useState(1)
-    const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products);
     const alert = useAlert();
-    const params = useParams();
-    const keyword = params.keyword;
-    const [precio, setPrecio] = useState([100, 300000])
-
+    const { loading, products, error } = useSelector(state => state.products);
     const dispatch = useDispatch();
+    
     useEffect(() => {
+        dispatch(getAdminProducts());
         if (error) {
-            return alert.error(error);
+            alert.error(error);
+            dispatch(clearErrors())
         }
-        dispatch(getProducts(currentPage, keyword, precio));
+        
         alert.success("ok");
-    }, [dispatch, alert, error, currentPage, keyword, precio]);
+    }, [dispatch, alert, error]);
 
-    function setCurrentPageNo(pageNumber) {
-        setCurrentPage(pageNumber) //param sent from onChange button
-    }
-
-
+    
 
     const setProducts = () => {
         const data = {
