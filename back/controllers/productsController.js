@@ -213,3 +213,4 @@ function verProductoById(id) {
         .catch(err => console.log(err));
 }
 /* verProductoById('634d0130e6a5f304d4fc3da4'); */
+
