@@ -29,11 +29,12 @@ export const UpdateProfile = () => {
         }
         if (isUpdated) {
             alert.success('User updated successfully')
-            dispatch(loadUser())
-            dispatch({ type: UPDATE_PROFILE_RESET })
+            dispatch(loadUser());
             navigate('/me')
+            dispatch({ type: UPDATE_PROFILE_RESET })
+            
         }
-    }, [dispatch, alert, error, isUpdated, navigate, user])
+    }, [dispatch, alert, error, isUpdated])
 
     const submitHandler = (e) => {
         e.preventDefault()
