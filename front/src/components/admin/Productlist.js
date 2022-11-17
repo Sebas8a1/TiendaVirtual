@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect,useState} from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProducts,} from '../../actions/productActions'
-import { Link, useParams} from 'react-router-dom'
+import { getProducts, } from '../../actions/productActions'
+import { Link, useParams } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { Metadata } from '../layout/Metadata'
 import Sidebar from './Sidebar'
@@ -12,25 +12,25 @@ import { MDBDataTable } from 'mdbreact'
 
 
 export const Productlist = () => {
-const [currentPage, setCurrentPage] = useState(1)
-  const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products);
-  const alert = useAlert();
-  const params = useParams();
-  const keyword = params.keyword;
-  const [precio, setPrecio] = useState([100, 300000])
+    const [currentPage, setCurrentPage] = useState(1)
+    const { loading, products, error, resPerPage, productsCount } = useSelector(state => state.products);
+    const alert = useAlert();
+    const params = useParams();
+    const keyword = params.keyword;
+    const [precio, setPrecio] = useState([100, 300000])
 
     const dispatch = useDispatch();
     useEffect(() => {
         if (error) {
-          return alert.error(error);
+            return alert.error(error);
         }
         dispatch(getProducts(currentPage, keyword, precio));
         alert.success("ok");
-      }, [dispatch, alert, error, currentPage, keyword, precio]);
-    
-      function setCurrentPageNo(pageNumber) {
+    }, [dispatch, alert, error, currentPage, keyword, precio]);
+
+    function setCurrentPageNo(pageNumber) {
         setCurrentPage(pageNumber) //param sent from onChange button
-      }
+    }
 
 
 
@@ -78,7 +78,7 @@ const [currentPage, setCurrentPage] = useState(1)
                 precio: `$${producto.precio}`,
                 inventario: producto.stock,
                 edit:/* <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal" >Edit</button>, */
-                <Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>, 
+                    <Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>,
                 delete: <Link to='/' className="fa-sharp fa-solid fa-trash-can icon-border"></Link>
             });
         })
@@ -144,8 +144,8 @@ const [currentPage, setCurrentPage] = useState(1)
                   </div>
                 </div>
               </div>*/}
-        
-       {/*  <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal">
+
+            {/*  <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal">
         Submit Your Review
                             </button>
                             <div className="row mt-2 mb-5">
@@ -172,7 +172,7 @@ const [currentPage, setCurrentPage] = useState(1)
                                     </div>
                                 </div>
                             </div> */}
-        
+
 
         </Fragment>
     )
