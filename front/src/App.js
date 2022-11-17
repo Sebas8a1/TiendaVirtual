@@ -39,7 +39,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/admin/dashboard" element={<ProtectedRoutes isAdmin={true}><Dashboard /></ProtectedRoutes>} />
-            <Route path="/admin/producList" element={<Productlist />} />
+            <Route path="/admin/productList" element={<Productlist />} />
             <Route path="/admin/newproduct" element={<NewProduct />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/admin/edit/:id" element={<EditProduct />} />

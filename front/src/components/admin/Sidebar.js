@@ -15,7 +15,7 @@ export const Sidebar = () => {
                             className="btn btn-secondary dropdown-toggle"><i className="fa fa-product-hunt"></i>Libros</a>
                         <ul className="collapse list-unstyled" id="productSubMenu">
                             <li>
-                                <Link to="/admin/producList"><i className="fa fa-clipboard"></i>Lista de libros</Link>
+                                <Link to="/admin/productList"><i className="fa fa-clipboard"></i>Lista de libros</Link>
                             </li>
                             <li>
                                 <Link to="/admin/newproduct"><i className="fa fa-plus"></i>Crear Libro</Link>
