@@ -18,8 +18,6 @@ export const Home = () => {
   const keyword = params.keyword;
   const [precio, setPrecio] = useState([100, 300000])
 
-
-
   const dispatch = useDispatch();
   useEffect(() => {
     if (error) {
@@ -36,7 +34,7 @@ export const Home = () => {
 
   return (
     <Fragment>
-      {loading ? <i class="fas fa-cog fa-spin"></i> : (
+      {loading ? <i className="fas fa-cog fa-spin"></i> : (
         <Fragment>
           <Metadata title={'Find the most awesome collection of books nline'} />
           <h1 id="products_heading">Latest Products</h1>
@@ -47,13 +45,13 @@ export const Home = () => {
                 className='t-slider'
                 marks={{
                   100: `$100`,
-                  30000:`$30000`,
-                  70000:`$70000`,
-                  110000:`$110000`,
-                  150000:`$150000`,
-                  190000:`$190000`,
-                  230000:`$230000`,
-                  270000:`$270000`,
+                  30000: `$30000`,
+                  70000: `$70000`,
+                  110000: `$110000`,
+                  150000: `$150000`,
+                  190000: `$190000`,
+                  230000: `$230000`,
+                  270000: `$270000`,
                   300000: `$300000`
                 }}
                 min={100}
@@ -68,11 +66,12 @@ export const Home = () => {
                 value={precio}
                 onChange={precio => setPrecio(precio)}
               ></Slider>
-              <br/>
-              <br/>
+              <br />
+              <br />
               {products.map(product => (
                 <div key={product._id} className="col-sm-12 col-md-6 col-lg-3 my-3">
                   <div className="card p-3 rounded">
+
                     <img
                       className="card-img-top mx-auto"
                       src={product.imagen[0].url}
@@ -81,6 +80,7 @@ export const Home = () => {
                     <div className="card-body d-flex flex-column">
                       <h5 className="card-title">
                         <Link to={`/product/${product._id}`}>{product.nombre}</Link>
+
                       </h5>
                       <div className="ratings mt-auto">
                         <div className="rating-outer">

@@ -1,5 +1,4 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { useAlert } from 'react-alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { Metadata } from '../layout/Metadata'
 import { register, clearErrors } from '../../actions/userActions';
@@ -15,7 +14,6 @@ export const Register = () => {
     const { nombre, email, password } = user;
     const [avatar, setAvatar] = useState("");
     const [avatarPreview, setAvatarPreview] = useState("https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-default-avatar-profile-icon-vector-social-media-user-image-vector-illustration-227787227.jpg")
-    const alert = useAlert();
     const dispatch = useDispatch();
     const { isAuthenticated, error, loading } = useSelector(state => state.auth)
     const navigate = useNavigate();
@@ -27,7 +25,7 @@ export const Register = () => {
         if (error) {
             dispatch(clearErrors)
         }
-    }, [dispatch, isAuthenticated, error])
+    }, [dispatch, isAuthenticated, error, navigate])
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -71,7 +69,7 @@ export const Register = () => {
                         <h1 className="mb-3">Registrar</h1>
 
                         <div className="form-group">
-                            <label htmlFor="name_field">Nombre</label>
+                            <label htmlFor="name_field">Full name</label>
                             <input
                                 type="name"
                                 id="name_field"

@@ -5,6 +5,9 @@ import { getProductDetails, clearErrors } from '../../actions/productActions'; /
 import { useAlert } from 'react-alert';
 import { useParams } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
+import { addItemToCart } from '../../actions/cartActions';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export const ProductDetails = () => {
@@ -12,6 +15,7 @@ export const ProductDetails = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const alert = useAlert();
+    const navigate = useNavigate();
     const [quantity, setQuantity] = useState(1)
 
 
@@ -26,6 +30,7 @@ export const ProductDetails = () => {
 
     const increaseQty = () => {
         const count = document.querySelector('.count');
+        if (count.valueAsNumber>=productById.stock) return;
         count.value++;
         setQuantity(count.value)
     }
@@ -36,6 +41,12 @@ export const ProductDetails = () => {
             count.value--;
             setQuantity(count.value)
         }
+    }
+
+    const addToCart = () => {
+        dispatch(addItemToCart(id, quantity))
+        alert.success('Item added to cart')
+        navigate('/')
     }
 
     return (
@@ -68,7 +79,7 @@ export const ProductDetails = () => {
                                 <input type="number" className="form-control-sm count d-inline" value={quantity} readOnly />
                                 <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
                             </div>
-                            <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4">Add to Cart</button>
+                            <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" onClick={addToCart}>Add to Cart</button>
                             <hr />
                             <p>Status: <span id="stock_status" className={productById.stock > 0 ? 'greenColor' : 'redColor'}>{productById.stock > 0 ? 'In Stock' : 'Out of Stock'}</span></p>
                             <hr />
