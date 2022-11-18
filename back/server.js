@@ -6,8 +6,15 @@ const cloudinary=require("cloudinary")
 // Path: back\server.js
 // Set the configuration for the server
 
-const dotenv = require('dotenv');
-dotenv.config({ path: 'back/config/config.env' });
+//Este código ya no se utilizará
+//const dotenv = require('dotenv');
+//dotenv.config({ path: 'back/config/config.env' });
+
+//Archivo dotenv
+
+//configurar archivo file
+
+if (process.env.NODE_ENV==="PRODUCTION") require('dotenv').config({path:'back/config/config.env'})
 
 // Configura DB
 connectDB();
