@@ -110,7 +110,7 @@ export const EditProduct = () => {
             navigate("/admin/dashboard")
             dispatch({ type: UPDATE_PRODUCT_RESET })
         }
-    }, [dispatch, alert, error, isUpdated, updateError, productById, productId])//esto es lo que se lleva, voy a sacar toda la info por si la necesito
+    }, [dispatch, alert, error, isUpdated, updateError, productById, productId, navigate])//esto es lo que se lleva, voy a sacar toda la info por si la necesito
 
     const submitHandler = (e) => {
         e.preventDefault();

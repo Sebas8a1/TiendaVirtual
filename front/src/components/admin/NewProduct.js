@@ -88,7 +88,7 @@ const NewProduct = () => {
             dispatch({ type: NEW_PRODUCT_RESET })//Para que se limpie la pantalla
 
         }
-    }, [dispatch, alert, error,success])//esto es lo que se lleva
+    }, [dispatch, alert, error,success, navigate])//esto es lo que se lleva
 
     const submitHandler = (e) => {
         e.preventDefault();

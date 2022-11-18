@@ -24,7 +24,6 @@ import { NewPassword } from './components/user/NewPassword';
 import { Shipping } from './components/cart/Shipping';
 import { ConfirmOrder } from './components/cart/ConfirmOrder';
 import { Payment } from './components/cart/Payment';
-import CheckoutSteps from './components/cart/CheckOutSteps';
 import { Success } from './components/cart/Success';
 
 
