@@ -14,7 +14,7 @@ const cloudinary=require("cloudinary")
 
 //configurar archivo file
 
-if (process.env.NODE_ENV==="PRODUCTION") require('dotenv').config({path:'back/config/config.env'})
+if(process.env.NODE_ENV==="PRODUCTION") require('dotenv').config({path:'back/config/config.env'})
 
 // Configura DB
 connectDB();

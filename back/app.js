@@ -4,11 +4,10 @@ const errorMiddleware = require('./middleware/errors');
 const cookieParser = require('cookie-parser');
 const bodyParser=require('body-parser');
 const fileUpload=require('express-fileupload')
-const path=require("path")
+const path = require("path")
 
-//configurar archivo file
-
-if (process.env.NODE_ENV!=="PRODUCTION") require('dotenv').config({path:'back/config/config.env'})
+//Seteamos archivo de configuracion
+if(process.env.NODE_ENV!=="PRODUCTION") require('dotenv').config({path:'back/config/config.env'})
 
 //uso de variables importadas
 app.use(express.json());
@@ -25,11 +24,10 @@ app.use('/api/v1', products);
 app.use('/api/v1', usuarios);
 app.use('/api/v1', order);
 
-if (process.env.NODE_ENV==="PRODUCTION"){
-    app.use(express.static(path.join(__dirname, '../front/build')))
-
-    app.get('*',(req,res,)=>{
-        res.sendFile(path.resolve(__dirname, '../front/build/index.html'))
+if(process.env.NODE_ENV === "PRODUCTION"){
+    app.use(express.static(path.join(__dirname,'../front/build')))
+    app.get("*", (req, res)=>{
+        res.sendFile(path.resolve(__dirname,'../front/build/index.html'))
     })
 }
 
