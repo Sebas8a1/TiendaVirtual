@@ -28,7 +28,7 @@ export const Payment = () => {
     cartItems.forEach(elem =>{
         items.push({
             nombre: elem.nombre,
-            cantidad: elem.cantidad,
+            cantidad: elem.quantity,
             imagen: elem.imagen,
             precio: elem.precio,
             producto: elem.productById
