@@ -6,32 +6,32 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 // Create new order
 exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     const {
-        orderItems,
-        shippingInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice,
-        paymentInfo
+        items,
+        envioInfo,
+        precioItems,
+        precioImpuesto,
+        precioEnvio,
+        precioTotal,
+        pagoInfo
     } = req.body;
 
-    const order = await Order.create({
-        orderItems,
-        shippingInfo,
-        itemsPrice,
-        taxPrice,
-        shippingPrice,
-        totalPrice,
-        paymentInfo,
-        paidAt: Date.now(),
+    const order= await Order.create({
+        items,
+        envioInfo,
+        precioItems,
+        precioImpuesto,
+        precioEnvio,
+        precioTotal,
+        pagoInfo,
+        fechaPago: Date.now(),
         user: req.user._id
-    });
+    })
 
     res.status(200).json({
         success: true,
         order
-    });
-});
+    })
+})
 
 // Get single order
 exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
@@ -83,7 +83,7 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     }
 
     order.orderItems.forEach(async item => {
-        await updateStock(item.product, item.quantity);
+        await updateStock(item.product, item.cantidad);
     });
 
     order.orderStatus = req.body.orderStatus;

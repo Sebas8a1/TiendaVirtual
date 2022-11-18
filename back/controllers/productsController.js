@@ -111,24 +111,52 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 // Update a product based on id => /api/v1/admin/product/:id
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
-    let productUpdate = await producto.findById(req.params.id);
+    let product = await producto.findById(req.params.id);
     /* if(!productUpdate){
         return res.status(404).json({
             success: false,
             message: 'Producto no encontrado'
         });
     } */
-    if (!productUpdate) {
+    if (!product) {
         return next(new ErrorHandler("Producto no encontrado", 404))
     }
-    productUpdate = await producto.findByIdAndUpdate(req.params.id, req.body, {
+    let imagen=[]
+    if(typeof req.body.imagen=="string"){
+        imagen.push(req.body.imagen)
+    }else{
+        imagen=req.body.imagen
+    }
+    if(imagen!==undefined){
+        //eliminar imagenes previas asociadas con el producto
+
+        for(let i=0;i<product.imagen.length;i++){
+            const result=await cloudinary.v2.uploader.destroy(productUpdate.imagen[i].public_id)
+
+        }
+
+        let imageLinks=[]
+        for (let i=0;i<imagen.length;i++){
+            const result=await cloudinary.v2.uploader.upload(imagen[i],{
+                folder:"products"
+            });
+            imageLinks.push({
+                public_id:result.public_id,
+                url:result.secure_url
+            })
+        }
+        req.body.imagen=imageLinks
+    }
+
+    //Si el producto si existe, ejecuto la actualización
+    product = await producto.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
         runValidators: true,
         useFindAndModify: false
     });
     res.status(200).json({
         success: true,
-        productUpdate
+        product
     });
 })
 

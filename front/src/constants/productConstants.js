@@ -19,5 +19,19 @@ export const NEW_PRODUCT_SUCCESS="NEW_PRODUCT_SUCCESS"
 export const NEW_PRODUCT_RESET="NEW_PRODUCT_RESET"
 export const NEW_PRODUCT_FAIL="NEW_PRODUCT_FAIL"
 
+//Constants to delete products
+
+export const DELETE_PRODUCT_REQUEST="DELETE_PRODUCT_REQUEST"
+export const DELETE_PRODUCT_SUCESS="DELETE_PRODUCT_SUCCESS"
+export const DELETE_PRODUCT_FAIL="DELETE_PRODUCT_FAIL"
+
+//Constants to update products
+
+export const UPDATE_PRODUCT_REQUEST="UPDATE_PRODUCT_REQUEST"
+export const UPDATE_PRODUCT_SUCCESS="UPDATE_PRODUCT_SUCCESS"
+export const UPDATE_PRODUCT_RESET="UPDATE_PRODUCT_RESET"//Como es un formulario debe ir el reset
+export const UPDATE_PRODUCT_FAIL="UPDATE_PRODUCT_FAIL"
+
+
 // Contants for clear errors
 export const CLEAR_ERRORS = 'CLEAR_ERRORS'

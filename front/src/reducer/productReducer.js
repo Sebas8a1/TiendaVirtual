@@ -11,7 +11,15 @@ import { ALL_PRODUCTS_REQUEST,
     NEW_PRODUCT_REQUEST,
     NEW_PRODUCT_SUCCESS,
     NEW_PRODUCT_FAIL,
-    NEW_PRODUCT_RESET} from "../constants/productConstants"; // Path: front\src\constants\productContants.js
+    NEW_PRODUCT_RESET,
+    DELETE_PRODUCT_REQUEST,
+    DELETE_PRODUCT_SUCESS,
+    DELETE_PRODUCT_FAIL,
+    UPDATE_PRODUCT_REQUEST,
+    UPDATE_PRODUCT_SUCCESS,
+    UPDATE_PRODUCT_FAIL,
+    UPDATE_PRODUCT_RESET
+} from "../constants/productConstants"; // Path: front\src\constants\productContants.js
 
 export const productsReducer = (state = { products: [] }, action) => {
     switch (action.type) {
@@ -114,3 +122,45 @@ export const newProductReducer=(state={product:{}},action)=>{
 
 
 }
+
+export const productReducer=(state={},action)=>{//recibe un estado y ejecuta una acción
+    switch(action.type){
+        case DELETE_PRODUCT_REQUEST:
+        case UPDATE_PRODUCT_REQUEST:
+            return{
+                ...state,
+                loading:true
+            }
+        case DELETE_PRODUCT_SUCESS:
+            return{
+                ...state,
+                loading:false,
+                isDeleted:action.payload //creo una variable, si se elimina existe isDeleted
+            }
+        case UPDATE_PRODUCT_SUCCESS:
+            return{
+                ...state,
+                loading:false,
+                isUpdated:action.payload //existe si trae algo con la actualización y significa que si se act
+
+            }
+        case DELETE_PRODUCT_FAIL:
+        case UPDATE_PRODUCT_FAIL:
+            return{
+                ...state,
+                error:action.payload
+            }
+        case UPDATE_PRODUCT_RESET:
+            return{
+                ...state,
+                isUpdated:false
+            }
+        case CLEAR_ERRORS:
+            return{
+                error:null
+            }
+        default:
+            return state
+    } 
+
+} 

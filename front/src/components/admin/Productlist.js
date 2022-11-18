@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearErrors, getAdminProducts } from '../../actions/productActions'
+import { clearErrors, deleteProduct, getAdminProducts } from '../../actions/productActions'
 import { Link } from 'react-router-dom'
 import { useAlert } from 'react-alert'
 import { Metadata } from '../layout/Metadata'
@@ -15,6 +15,14 @@ export const Productlist = () => {
     const alert = useAlert();
     const { loading, products, error } = useSelector(state => state.products);
     const dispatch = useDispatch();
+    const deleteProductHandler=(id)=>{
+        const response=window.confirm("Esta seguro de eliminar el producto?")//Ventana de mensaje emergente
+        if(response){
+           dispatch(deleteProduct(id))  //Este es el delete del action
+            alert.success("Producto eliminado correctamente")
+            window.location.reload(false)//Para que se recargue la pagina
+        }
+    }
     
     useEffect(() => {
         dispatch(getAdminProducts());
@@ -23,7 +31,7 @@ export const Productlist = () => {
             dispatch(clearErrors())
         }
         
-        alert.success("ok");
+        
     }, [dispatch, alert, error]);
 
     
@@ -73,7 +81,10 @@ export const Productlist = () => {
                 inventario: producto.stock,
                 edit:/* <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal" >Edit</button>, */
                     <Link to={`/admin/edit/${producto._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>,
-                delete: <Link to='/' className="fa-sharp fa-solid fa-trash-can icon-border"></Link>
+                delete: 
+                <Link className="fa-sharp fa-solid fa-trash-can icon-border" onClick={() => deleteProductHandler(producto._id)}>
+                        {/*<i className="fa fa-trash"></i>*/}
+                    </Link >
             });
         })
         return data;
