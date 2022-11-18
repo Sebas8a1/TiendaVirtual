@@ -1,0 +1,26 @@
+{
+    "itemsPrice" : 94000,
+    "taxPrice" : 0.14,
+    "shippingPrice" : 12000,
+    "totalPrice" : 106000,
+    "orderItems:" : [
+        {
+        "product" : "63528c835685f576663a8382",
+        "name" : "El hobbit",
+        "price" : 94000,
+        "image" : "../images/libros/The_Hobbit.png",
+        "qty" : 1
+        }
+    ],
+    "shippingInfo" : {
+    "address" : "CL 40 # 30-30",
+    "city" : "Sabaneta",
+    "phoneNo" : 5555551234,
+    "postalCode":"000454",
+    "country" : "Colombia"
+        },
+        "paymentInfo" : {
+        "id" : "pi_1HrMVNAlHMiRMt8E1BguvVIo",
+        "status": "succeeded"
+        }
+    }
