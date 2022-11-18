@@ -2,7 +2,7 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const producto = require('../models/productos');
 const APIFeatures = require('../utils/apiFeatures.js');
 const fetch = (url) => import('node-fetch').then(({ default: fetch }) => fetch(url));
-const cloudinary=require("cloudinary")
+const cloudinary = require("cloudinary")
 
 // View list for all products => /api/v1/products
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
@@ -15,7 +15,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
         .filter();
 
     let products = await apiFeatures.query;
-    let filteredProductsCount= products.length;
+    let filteredProductsCount = products.length;
     apiFeatures.pagination(resPerPage);
     products = await apiFeatures.query.clone();
 
@@ -74,27 +74,27 @@ exports.getProductById= catchAsyncErrors( async (req, res, next)=>{
 
 // Create new product => /api/v1/product/new
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
-    let imagen=[]
-    if(typeof req.body.imagen==="string"){
+    let imagen = []
+    if (typeof req.body.imagen === "string") {
         imagen.push(req.body.imagen)
-    }else{
-        imagen=req.body.imagen
+    } else {
+        imagen = req.body.imagen
     }
 
-    let imagenLink=[]
-    for (let i=0;i<imagen.length;i++){
-        const result=await cloudinary.v2.uploader.upload(imagen[i],{
-            folder:"products"
+    let imagenLink = []
+    for (let i = 0; i < imagen.length; i++) {
+        const result = await cloudinary.v2.uploader.upload(imagen[i], {
+            folder: "products"
         })
 
         imagenLink.push({
-            public_id:result.public_id,
+            public_id: result.public_id,
             url: result.secure_url
         })
     }
 
-    req.body.imagen=imagenLink
-    
+    req.body.imagen = imagenLink
+
 
 
     req.body.user = req.user.id;
@@ -112,15 +112,35 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 // Update a product based on id => /api/v1/admin/product/:id
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
     let productUpdate = await producto.findById(req.params.id);
-    /* if(!productUpdate){
-        return res.status(404).json({
-            success: false,
-            message: 'Producto no encontrado'
-        });
-    } */
     if (!productUpdate) {
         return next(new ErrorHandler("Producto no encontrado", 404))
     }
+
+    let imagen = []
+    if (typeof req.body.imagen === "string") {
+        imagen.push(req.body.imagen)
+    } else {
+        imagen = req.body.imagen
+    }
+
+    if (imagen !== undefined) {
+        for (let i = 0; i < productUpdate.imagen.length; i++) {
+            const result = await cloudinary.v2.uploader.destroy(productUpdate.imagen[i].public_id)
+        }
+        let imagenLink = []
+        for (let i = 0; i < imagen.length; i++) {
+            const result = await cloudinary.v2.uploader.upload(imagen[i], {
+                folder: "products"
+            })
+
+            imagenLink.push({
+                public_id: result.public_id,
+                url: result.secure_url
+            })
+        }
+        req.body.imagen = imagenLink
+    }
+
     productUpdate = await producto.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
         runValidators: true,
@@ -206,9 +226,9 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     const allReviews = product.reviews;
     const rev = product.reviews.filter(review => review._id.toString() !== req.query.id.toString());
     const numCalificaciones = rev.length;
-    
+
     const calificacion = rev.reduce((acc, item) => item.rating + acc, 0) / rev.length;
-    
+
     await producto.findByIdAndUpdate(req.query.productId, {
         reviews,
         numCalificaciones,
@@ -226,7 +246,7 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
 
 // View list for all products (Admin)=> /api/v1/products
 exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
-     const products= await producto.find()
+    const products = await producto.find()
 
     res.status(200).json({
         products
