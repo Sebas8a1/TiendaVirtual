@@ -1,25 +1,29 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import { useAlert } from 'react-alert'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { clearErrors, newProduct } from '../../actions/productActions'
-import { NEW_PRODUCT_RESET } from '../../constants/productConstants'
-import { Metadata } from '../layout/Metadata'
+import { useNavigate, useParams } from 'react-router-dom'
+import { clearErrors, getProductDetails, updateProduct } from '../../actions/productActions'
+import { UPDATE_PRODUCT_RESET } from '../../constants/productConstants'
+import  Metadata  from '../layout/Metadata'
 import Sidebar from './Sidebar'
 
 
-const NewProduct = () => {
+
+export const EditProduct = () => {
 
     //Declaro las variables y sus valores de inicio
 
-    const [nombre, setNombre] = useState("")
-    const [precio, setPrecio] = useState(0)
-    const [descripcion, setDescripcion] = useState("")
-    const [categoria, setCategoria] = useState("")
-    const [stock, setStock] = useState("")
+    const navigate = useNavigate();//Para que cuando cree el producto me redirija a algun lado
+    const params = useParams();//Para que me traiga el id como parametro
+    const [nombre, setNombre] = useState("");
+    const [precio, setPrecio] = useState(0);
+    const [descripcion, setDescripcion] = useState("");
+    const [categoria, setCategoria] = useState("");
+    const [stock, setStock] = useState(0);
     const [vendedor, setVendedor] = useState("")
     const [imagen, setImagen] = useState([])//es un arreglo que comienza vacio
     const [imagenPreview, setImagenPreview] = useState([])
+    const [oldImagen, setOldImagen] = useState([])//Arreglo que considera las imagenes anteriores
 
     //creamos arreglo con categorias
 
@@ -72,23 +76,41 @@ const NewProduct = () => {
 
     const alert = useAlert();
     const dispatch = useDispatch();
-    const { loading, error, success } = useSelector(state => state.newProduct)//este state viene del store
-    const navigate = useNavigate();//Para que cuando cree el producto me redirija a algun lado
+    const { loading, isUpdated, error: updateError } = useSelector(state => state.product)//este state viene del store//Cargo los estados que creé en el reducer para updated
+    const { error, productById } = useSelector(state => state.productDetails)//Este estado viene del store y me trae la info de los productos
+
+
+    const productId = params.id;
+
 
     //creamos mensaje en caso de error
 
     useEffect(() => {
+        if (productById && productById._id !== productId) {
+            dispatch(getProductDetails(productId));
+        } else {//Aqui ya llena los campos vacios
+            setNombre(productById.nombre);
+            setPrecio(productById.precio);
+            setDescripcion(productById.descripcion);
+            setCategoria(productById.categoria);
+            setVendedor(productById.vendedor);
+            setStock(productById.stock);
+            setOldImagen(productById.imagen)
+        }
         if (error) {
-            alert.error(error);
+            alert.error(error)
             dispatch(clearErrors)
         }
-        if (success) {
-            navigate("/admin/dashboard")
-            alert.success("Producto registrado con exito")
-            dispatch({ type: NEW_PRODUCT_RESET })//Para que se limpie la pantalla
-
+        if (updateError) {
+            alert.error(error)
+            dispatch(clearErrors)
         }
-    }, [dispatch, alert, error,success, navigate])//esto es lo que se lleva
+        if (isUpdated) {
+            alert.success("Producto actualizado correctamente")
+            navigate("/admin/dashboard")
+            dispatch({ type: UPDATE_PRODUCT_RESET })
+        }
+    }, [dispatch, alert, error, isUpdated, updateError, productById, productId, navigate])//esto es lo que se lleva, voy a sacar toda la info por si la necesito
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -104,7 +126,7 @@ const NewProduct = () => {
             formData.append("imagen", img)
         })
 
-        dispatch(newProduct(formData))//es el new product del actions
+        dispatch(updateProduct(productById._id, formData))//es el updateProduct del actions
 
     }
 
@@ -112,6 +134,7 @@ const NewProduct = () => {
         const files = Array.from(e.target.files)
         setImagenPreview([])
         setImagen([])
+        setOldImagen([])
 
         files.forEach(file => {
             const reader = new FileReader();
@@ -123,13 +146,14 @@ const NewProduct = () => {
             }
             reader.readAsDataURL(file)
         })
-        
+
     }
+
 
 
     return (
         <Fragment>
-            <Metadata title={'Nuevo Producto'} />
+            <Metadata title={'Editar Libro'} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -138,79 +162,63 @@ const NewProduct = () => {
                 <div className="col-12 col-md-10">
                     <Fragment>
                         <div className="wrapper my-5">
-                            <form className="shadow-lg" onSubmit={submitHandler} encType='application/json'>
-                                <h1 className="mb-4">Nuevo libro</h1>
+                            <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
+                                <h1 className="mb-4">Editar Libro</h1>
 
                                 <div className="form-group">
                                     <label htmlFor="name_field">Nombre</label>
-                                    <input
-                                        type="text"
-                                        id="name_field"
-                                        className="form-control"
+                                    <input type="text" id="name_field" className='form-control'
                                         value={nombre}
-                                        onChange={(e) => setNombre(e.target.value)}
+                                        onChange={(e) => setNombre(e.target.value)} />
 
-                                    />
+
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="price_field">Precio</label>
+                                    <label htmlFor="price_field">Price</label>
                                     <input
-                                        type="number"
+                                        type="text"
                                         id="price_field"
                                         className="form-control"
                                         value={precio}
                                         onChange={(e) => setPrecio(e.target.value)}
-
 
                                     />
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="description_field">Descripcion</label>
-                                    <textarea className="form-control" id="description_field" rows="8"
+                                    <textarea className="form-control"
+                                        id="description_field"
+                                        rows="8"
                                         value={descripcion}
-                                        onChange={(e) => setDescripcion(e.target.value)}
-
-
-                                    ></textarea>
+                                        onChange={(e) => setDescripcion(e.target.value)}></textarea>
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="category_field">Categoria</label>
-                                    <select id="categoria_field" className='form-control'
-                                        value={categoria}
+                                    <select id="categoria_field" className='form-control' value={categoria}
                                         onChange={(e) => setCategoria(e.target.value)} >
                                         {categorias.map(categoria => (
                                             <option key={categoria} value={categoria}>{categoria}</option>
                                         ))}
 
-
-
                                     </select>
+
+
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="stock_field">Inventario</label>
-                                    <input
-                                        type="number"
-                                        id="stock_field"
-                                        className="form-control"
+                                    <input type="text" id="stock_field" className='form-control'
                                         value={stock}
-                                        onChange={(e) => setStock(e.target.value)}
-
-                                    />
+                                        onChange={(e) => setStock(e.target.value)} />
                                 </div>
 
                                 <div className="form-group">
                                     <label htmlFor="seller_field">Vendedor</label>
-                                    <input
-                                        type="text"
-                                        id="seller_field"
-                                        className="form-control"
+                                    <input type="text" id="vendedor_field" className='form-control'
                                         value={vendedor}
-                                        onChange={(e) => setVendedor(e.target.value)}
-
-                                    />
+                                        onChange={(e) => setVendedor(e.target.value)} />
                                 </div>
 
                                 <div className='form-group'>
@@ -224,13 +232,19 @@ const NewProduct = () => {
                                             id='customFile'
                                             onChange={onChange}
                                             multiple
+
                                         />
                                         <label className='custom-file-label' htmlFor='customFile'>
                                             Seleccione Imagen
                                         </label>
                                     </div>
+
+                                    {oldImagen && oldImagen.map(img => (
+                                        <img key={img} src={img.url} alt={img.url} className="mt-3 mr-2" width="55" height="52" />
+                                    ))}
+
                                     {imagenPreview.map(img => (
-                                        <img src={img} key={img} alt="Vista previa de la imagen" className="mt-3 mr-2" width="55" height="55" />
+                                        <img src={img} key={img} alt="Vista Previa" className="mt-3 mr-2" width="55" height="52" />
                                     ))}
 
                                 </div>
@@ -242,7 +256,7 @@ const NewProduct = () => {
                                     className="button py-2"
                                     disabled={loading ? true : false}
                                 >
-                                    Crear
+                                    Actualizar
                                 </button>
 
                             </form>
@@ -255,4 +269,4 @@ const NewProduct = () => {
     )
 }
 
-export default NewProduct
+export default EditProduct

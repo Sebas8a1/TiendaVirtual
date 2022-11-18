@@ -13,9 +13,8 @@ import { ALL_PRODUCTS_REQUEST,
     NEW_PRODUCT_FAIL,
     NEW_PRODUCT_RESET,
     DELETE_PRODUCT_REQUEST,
-    DELETE_PRODUCT_SUCCESS,
+    DELETE_PRODUCT_SUCESS,
     DELETE_PRODUCT_FAIL,
-    DELETE_PRODUCT_RESET,
     UPDATE_PRODUCT_REQUEST,
     UPDATE_PRODUCT_SUCCESS,
     UPDATE_PRODUCT_FAIL,
@@ -118,10 +117,13 @@ export const newProductReducer=(state={product:{}},action)=>{
             }
             default:
                 return state
+
     }   
+
+
 }
 
-export const productReducer=(state={},action)=>{
+export const productReducer=(state={},action)=>{//recibe un estado y ejecuta una acción
     switch(action.type){
         case DELETE_PRODUCT_REQUEST:
         case UPDATE_PRODUCT_REQUEST:
@@ -129,28 +131,24 @@ export const productReducer=(state={},action)=>{
                 ...state,
                 loading:true
             }
-        case DELETE_PRODUCT_SUCCESS:
+        case DELETE_PRODUCT_SUCESS:
             return{
                 ...state,
                 loading:false,
-                isDeleted:action.payload
+                isDeleted:action.payload //creo una variable, si se elimina existe isDeleted
             }
         case UPDATE_PRODUCT_SUCCESS:
             return{
                 ...state,
                 loading:false,
-                isUpdated:action.payload
+                isUpdated:action.payload //existe si trae algo con la actualización y significa que si se act
+
             }
         case DELETE_PRODUCT_FAIL:
         case UPDATE_PRODUCT_FAIL:
             return{
                 ...state,
                 error:action.payload
-            }
-        case DELETE_PRODUCT_RESET:
-            return{
-                ...state,
-                isDeleted:false
             }
         case UPDATE_PRODUCT_RESET:
             return{
@@ -159,10 +157,10 @@ export const productReducer=(state={},action)=>{
             }
         case CLEAR_ERRORS:
             return{
-                ...state,
                 error:null
             }
         default:
             return state
-    }
-}
+    } 
+
+} 

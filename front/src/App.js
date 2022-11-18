@@ -21,6 +21,10 @@ import ProtectedRoutes from './routes/ProtectedRoutes';
 import { UpdatePassword } from './components/user/UpdatePassword';
 import { ForgotPassword } from './components/user/ForgotPassword';
 import { NewPassword } from './components/user/NewPassword';
+import { Shipping } from './components/cart/Shipping';
+import { ConfirmOrder } from './components/cart/ConfirmOrder';
+import { Payment } from './components/cart/Payment';
+import { Success } from './components/cart/Success';
 
 
 function App() {
@@ -42,7 +46,11 @@ function App() {
             <Route path="/admin/productList" element={<Productlist />} />
             <Route path="/admin/newproduct" element={<NewProduct />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/admin/edit/:id" element={<EditProduct />} />
+            <Route path="/admin/edit/:id" element={<ProtectedRoutes isAdmin={true}><EditProduct /></ProtectedRoutes>} />
+            <Route path="/shipping" element={<ProtectedRoutes ><Shipping/></ProtectedRoutes>} />
+            <Route path="/payment" element={<ProtectedRoutes ><Payment/></ProtectedRoutes>} />
+            <Route path="/success" element={<ProtectedRoutes ><Success/></ProtectedRoutes>} />
+            <Route path="/order/confirm" element={<ProtectedRoutes ><ConfirmOrder/></ProtectedRoutes>} />
             <Route path="/search/:keyword" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

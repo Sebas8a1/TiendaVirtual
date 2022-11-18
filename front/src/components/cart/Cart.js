@@ -1,13 +1,15 @@
 import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Metadata } from '../layout/Metadata'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItemToCart, removeItemFromCart } from '../../actions/cartActions'
 
 
 const Cart = () => {
+    const navigate=useNavigate()
     const dispatch = useDispatch()
     const { cartItems } = useSelector(state => state.cart)
+    const {user}=useSelector(state=>state.auth)
 
     const increaseQty = (id, quantity, stock) => {
         const newQty = quantity + 1;
@@ -25,6 +27,16 @@ const Cart = () => {
         if (newQty <= 0) return;
 
         dispatch(addItemToCart(id, newQty))
+    }
+
+    const checkOutHandler=()=>{
+        if(user){
+            navigate("/shipping")
+
+        }else{
+            navigate("/login")
+        }
+
     }
 
     const removeFromCart = (id) => {
@@ -45,7 +57,7 @@ const Cart = () => {
                     <div className="row d-flex justify-content-between">
                         <div className="col-12 col-lg-8">
 
-                            {cartItems.map(item => (
+                            {cartItems && cartItems.map(item => (
                                 <Fragment>
                                     <hr />
 
@@ -92,7 +104,7 @@ const Cart = () => {
                                 <p>Subtotal: <span className="order-summary-values">${cartItems.reduce((acc, item) => (acc + Number(item.quantity * item.precio)), 0).toFixed(2)}</span></p>
 
                                 <hr />
-                                <button id="checkout_btn" className="btn btn-primary btn-block">Comprar!</button>
+                                <button id="checkout_btn" className="btn btn-primary btn-block" onClick={checkOutHandler}>Comprar!</button>
                             </div>
                         </div>
                     </div>

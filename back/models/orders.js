@@ -1,93 +1,97 @@
-// orderSchema
+const mongoose = require("mongoose")
 
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
-const orderSchema = new Schema({
-    user: {
-            type:mongoose.Schema.Types.ObjectId,
-            ref: "auth", // <-- reference the auth model in the auth.js file in the models folder
-            required: true
-        },
-    
-    orderItems: [
-        {
-            name: { type: String, required: true },
-            qty: { type: Number, required: true },
-            image: { type: String, required: true },
-            price: { type: Number, required: true },
-            product: {
-                type: Schema.Types.ObjectId,
-                ref: 'productos', // <-- reference the Product model in the productos.js file in the models folder
-                required: true
-            }
-        }
-    ],
-    shippingInfo: {
-        address: {
+const orderSchema = mongoose.Schema({
+    envioInfo: {
+        direccion: {
             type: String,
             required: true
         },
-        city: {
+        ciudad: {
             type: String,
             required: true
         },
-        phoneNo: {
+        telefono: {
             type: String,
             required: true
         },
-        postalCode: {
-            type: String,
-            required: true
-        },
-        country: {
+        departamento: {
             type: String,
             required: true
         }
     },
-    paymentInfo: {
+    user:
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: "auth"
+    },
+    items: [{
+        nombre: {
+            type: String,
+            required: true
+        },
+        cantidad: {
+            type: Number,
+            required: true
+        },
+        imagen: {
+            type: String,
+            required: true
+        },
+        precio: {
+            type: Number,
+            required: true
+        },
+        producto: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "productos"
+        }
+    }
+    ],
+    pagoInfo: {
         id: {
             type: String
         },
-        status: {
-            type: String
+        estado: {
+            type:String
         }
     },
-    paidAt: {
+    fechaPago:{
         type: Date
     },
-    itemsPrice: {
-        type: Number,
+    precioItems:{
+        type:Number,
         required: true,
         default: 0.0
     },
-    taxPrice: {
-        type: Number,
+    precioImpuesto:{
+        type:Number,
+        required: true,
+        defautl: 0.0
+    },
+    precioEnvio:{
+        type:Number,
         required: true,
         default: 0.0
     },
-    shippingPrice: {
-        type: Number,
-        required: true,
-        default: 0.0
+    precioTotal:{
+        type:Number,
+        required:true,
+        default:0.0
     },
-    totalPrice: {
-        type: Number,
-        required: true,
-        default: 0.0
-    },
-    orderStatus: {
+    estado:{
         type: String,
         required: true,
-        default: 'Processing'
+        default:"Procesando"
     },
-    deliveredAt: {
-        type: Date
+    fechaEnvio:{
+        type:Date
     },
-    createdAt: {
-        type: Date,
+    fechaCreacion:{
+        type:Date,
         default: Date.now
     }
-});
+})
 
-module.exports = mongoose.model('Order', orderSchema);
+module.exports=mongoose.model("order",orderSchema)
