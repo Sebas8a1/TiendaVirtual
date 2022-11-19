@@ -7,7 +7,7 @@
     "start": "node back/server.js",
     "dev": "export NODE_ENV=DEVELOPMENT&& nodemon back/server.js",
     "prod": "export NODE_ENV=PRODUCTION&& nodemon back/server.js",
-    "heroku-postbuild":"npm run build"
+    "heroku-postbuild":"npm run build --prefix front"
   },
   "author": "Jesus",
   "license": "ISC",
