@@ -4,13 +4,14 @@
   "description": "Proyecto del Ciclo 4 para MinTic UdeA",
   "main": "server.js",
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
+    "start": "node back/server.js && serve -s build",
+    "dev": "export NODE_ENV=DEVELPMENT&& nodemon back/server.js && react-scripts start",
+    "prod": "export NODE_ENV=PRODUCTION&& nodemon back/server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
-    },
+    "eject": "react-scripts eject"
+    "build": "react-scripts build",
+  },
   "author": "Jesus",
   "license": "ISC",
   "dependencies": {
