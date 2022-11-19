@@ -7,7 +7,9 @@
     "start": "node back/server.js",
     "dev": "set NODE_ENV=DEVELPMENT&& nodemon back/server.js",
     "prod": "set NODE_ENV=PRODUCTION&& nodemon back/server.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false && NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "author": "Jesus",
   "license": "ISC",
@@ -23,6 +25,7 @@
     "mongoose": "^6.6.4",
     "node-fetch": "^3.2.10",
     "nodemailer": "^6.8.0",
+    "serve": "^14.1.2",
     "validator": "^13.7.0"
   },
   "devDependencies": {
