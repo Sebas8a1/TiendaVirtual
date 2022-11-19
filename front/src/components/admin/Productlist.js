@@ -16,10 +16,10 @@ export const Productlist = () => {
     const { loading, products, error } = useSelector(state => state.products);
     const dispatch = useDispatch();
     const deleteProductHandler=(id)=>{
-        const response=window.confirm("Esta seguro de eliminar el producto?")//Ventana de mensaje emergente
+        const response=window.confirm("Are you Sure you want to delete the Product?")//Ventana de mensaje emergente
         if(response){
            dispatch(deleteProduct(id))  //Este es el delete del action
-            alert.success("Producto eliminado correctamente")
+            alert.success("Delete Successfully")
             window.location.reload(false)//Para que se recargue la pagina
         }
     }
@@ -46,17 +46,17 @@ export const Productlist = () => {
                 },
 
                 {
-                    label: "Nombre",
+                    label: "Name",
                     field: "nombre",
                     sort: "asc"
                 },
                 {
-                    label: "Precio",
+                    label: "Price",
                     field: "precio",
                     sort: "asc"
                 },
                 {
-                    label: "Inventario",
+                    label: "Stock",
                     field: "inventario",
                     sort: "asc"
                 },
@@ -93,14 +93,14 @@ export const Productlist = () => {
 
     return (
         <Fragment>
-            <Metadata title={"Todos los productos"}></Metadata>
+            <Metadata title={"All Products"}></Metadata>
             <div className='row'>
                 <div className='col-12 col-md-2'>
                     <Sidebar />
                 </div>
                 <div className='col-12 col-md-10'>
                     <Fragment>
-                        <h1 className='my-5'>Productos registrados</h1>
+                        <h1 className='my-5'>Registered products</h1>
 
                     </Fragment>
                     {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (

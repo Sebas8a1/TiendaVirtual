@@ -153,7 +153,7 @@ export const EditProduct = () => {
 
     return (
         <Fragment>
-            <Metadata title={'Editar Libro'} />
+            <Metadata title={'Edit Book'} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -163,10 +163,10 @@ export const EditProduct = () => {
                     <Fragment>
                         <div className="wrapper my-5">
                             <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                                <h1 className="mb-4">Editar Libro</h1>
+                                <h1 className="mb-4">Edit Book</h1>
 
                                 <div className="form-group">
-                                    <label htmlFor="name_field">Nombre</label>
+                                    <label htmlFor="name_field">Name</label>
                                     <input type="text" id="name_field" className='form-control'
                                         value={nombre}
                                         onChange={(e) => setNombre(e.target.value)} />
@@ -187,7 +187,7 @@ export const EditProduct = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="description_field">Descripcion</label>
+                                    <label htmlFor="description_field">Description</label>
                                     <textarea className="form-control"
                                         id="description_field"
                                         rows="8"
@@ -196,7 +196,7 @@ export const EditProduct = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="category_field">Categoria</label>
+                                    <label htmlFor="category_field">Category</label>
                                     <select id="categoria_field" className='form-control' value={categoria}
                                         onChange={(e) => setCategoria(e.target.value)} >
                                         {categorias.map(categoria => (
@@ -208,21 +208,21 @@ export const EditProduct = () => {
 
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="stock_field">Inventario</label>
+                                    <label htmlFor="stock_field">Stock</label>
                                     <input type="text" id="stock_field" className='form-control'
                                         value={stock}
                                         onChange={(e) => setStock(e.target.value)} />
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="seller_field">Vendedor</label>
+                                    <label htmlFor="seller_field">Seller</label>
                                     <input type="text" id="vendedor_field" className='form-control'
                                         value={vendedor}
                                         onChange={(e) => setVendedor(e.target.value)} />
                                 </div>
 
                                 <div className='form-group'>
-                                    <label>Imagenes</label>
+                                    <label>Images</label>
 
                                     <div className='custom-file'>
                                         <input
@@ -235,7 +235,7 @@ export const EditProduct = () => {
 
                                         />
                                         <label className='custom-file-label' htmlFor='customFile'>
-                                            Seleccione Imagen
+                                            Select Image
                                         </label>
                                     </div>
 
@@ -256,7 +256,7 @@ export const EditProduct = () => {
                                     className="button py-2"
                                     disabled={loading ? true : false}
                                 >
-                                    Actualizar
+                                    Update
                                 </button>
 
                             </form>

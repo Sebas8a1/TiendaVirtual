@@ -58,7 +58,7 @@ export const Payment = () => {
         try{
             dispatch(createOrder(order))
             localStorage.removeItem("cartItems")
-            window.alert("Orden registrada correctamente")
+            window.alert("Order registered successfully")
             navigate("/success")
             window.location.reload(false)
         }catch(error){
@@ -76,9 +76,9 @@ export const Payment = () => {
             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler} >
-                        <h1 className="mb-4">Datos de tarjeta</h1>
+                        <h1 className="mb-4">Card Information</h1>
                         <div className="form-group">
-                            <label htmlFor="card_num_field">Datos de la tarjeta</label>
+                            <label htmlFor="card_num_field">Card Information</label>
                             <input
                                 type="number"
                                 id="card_num_field"
@@ -87,7 +87,7 @@ export const Payment = () => {
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="card_exp_field">Fecha de vencimiento</label>
+                            <label htmlFor="card_exp_field">Expired Date</label>
                             <input
                                 type="text"
                                 id="card_exp_field"
@@ -110,7 +110,7 @@ export const Payment = () => {
                             type="submit"
                             className="btn btn-block py-3"
                         >
-                            Pagar ${` - ${orderInfo && orderInfo.precioTotal}`}
+                            Purchase ${` - ${orderInfo && orderInfo.precioTotal}`}
                         </button>
 
                     </form>

@@ -27,7 +27,7 @@ const UsersList = () => {
         }
 
         if (isDeleted) {
-            alert.success('Usuario Eliminado correctamente');
+            alert.success('User Deleted Successfully');
             navigate('/admin/users');
             dispatch({ type: DELETE_USER_RESET })
         }
@@ -42,12 +42,12 @@ const UsersList = () => {
         const data = {
             columns: [
                 {
-                    label: 'ID Usuario',
+                    label: 'ID User',
                     field: 'id',
                     sort: 'asc'
                 },
                 {
-                    label: 'Nombre',
+                    label: 'Name',
                     field: 'nombre',
                     sort: 'asc'
                 },
@@ -62,7 +62,7 @@ const UsersList = () => {
                     sort: 'asc'
                 },
                 {
-                    label: 'Acciones',
+                    label: 'Actions',
                     field: 'acciones',
                 },
             ],
@@ -77,12 +77,15 @@ const UsersList = () => {
                 rol: user.role,
 
                 acciones: <Fragment>
-                    <Link to={`/admin/user/${user._id}`} className="btn btn-primary py-1 px-2">
-                        <i className="fa fa-pencil"></i>
+                    <Link to={`/admin/user/${user._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" >
+                        
                     </Link>
-                    <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteUserHandler(user._id)}>
-                        <i className="fa fa-trash"></i>
-                    </button>
+                    <Link className="fa-sharp fa-solid fa-trash-can icon-border" onClick={() => deleteUserHandler(user._id)}>
+                        
+                    </Link>
+
+                    
+                    
                 </Fragment>
             })
         })
@@ -93,7 +96,7 @@ const UsersList = () => {
 
     return (
         <Fragment>
-            <Metadata title={'Usuarios Registrados'} />
+            <Metadata title={'Registered users'} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -101,7 +104,7 @@ const UsersList = () => {
 
                 <div className="col-12 col-md-10">
                     <Fragment>
-                        <h1 className="my-5">Usuarios Registrados</h1>
+                        <h1 className="my-5">Registered Users</h1>
 
                         {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                             <MDBDataTable

@@ -30,20 +30,20 @@ export const ConfirmOrder = () => {
     return (
         <Fragment>
 
-            <Metadata title={'Confirmar Orden'} />
+            <Metadata title={'Confirm Order'} />
 
             <CheckoutSteps shipping confirmOrder />
 
             <div className="row d-flex justify-content-between">
                 <div className="col-12 col-lg-8 mt-5 order-confirm">
 
-                    <h4 className="mb-3">Información de Envio</h4>
-                    <p><b>Nombre:</b> {user && user.nombre}</p>
-                    <p><b>Teléfono:</b> {shippingInfo.telefono}</p>
-                    <p className="mb-4"><b>Dirección:</b> {`${shippingInfo.direccion}, ${shippingInfo.ciudad} ${shippingInfo.departamento}`}</p>
+                    <h4 className="mb-3">Shipping Information</h4>
+                    <p><b>Name:</b> {user && user.nombre}</p>
+                    <p><b>Phone N°:</b> {shippingInfo.telefono}</p>
+                    <p className="mb-4"><b>Address:</b> {`${shippingInfo.direccion}, ${shippingInfo.ciudad} ${shippingInfo.departamento}`}</p>
 
                     <hr />
-                    <h4 className="mt-4">Productos en tu Carrito:</h4>
+                    <h4 className="mt-4">Shopping Cart</h4>
 
                     {cartItems.map(item => (
                         <Fragment>
@@ -72,18 +72,18 @@ export const ConfirmOrder = () => {
 
                 <div className="col-12 col-lg-3 my-4">
                     <div id="order_summary">
-                        <h4>Resumen de la compra</h4>
+                        <h4>Purchase Summary</h4>
                         <hr />
                         <p>Subtotal:  <span className="order-summary-values">${precioItems}</span></p>
-                        <p>Costo de Envío: <span className="order-summary-values">${precioEnvio}</span></p>
-                        <p>Impuestos:  <span className="order-summary-values">${precioImpuesto}</span></p>
+                        <p>Shipping price <span className="order-summary-values">${precioEnvio}</span></p>
+                        <p>Tax Price:  <span className="order-summary-values">${precioImpuesto}</span></p>
 
                         <hr />
 
                         <p>Total: <span className="order-summary-values">${precioTotal}</span></p>
 
                         <hr />
-                        <button id="checkout_btn" className="btn btn-primary btn-block" onClick={processToPayment}>Continuar con el pago</button>
+                        <button id="checkout_btn" className="btn btn-primary btn-block" onClick={processToPayment}>Proceed to Checkout</button>
                     </div>
                 </div>
 

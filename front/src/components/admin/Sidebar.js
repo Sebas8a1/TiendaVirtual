@@ -7,18 +7,18 @@ export const Sidebar = () => {
             <nav id="sidebar">
                 <ul className="list-unstyled components">
                     <li>
-                        <Link to="/admin/dashboard"><i className="fa fa-tachometer"></i>Administración</Link>
+                        <Link to="/admin/dashboard"><i className="fa fa-tachometer"></i>Managment</Link>
                     </li>
                     {/*Botones de productos*/}
                     <li>
                         <a href="#productSubMenu" data-toggle="collapse" aria-expanded="false"
-                            className="btn btn-secondary dropdown-toggle"><i className="fa fa-product-hunt"></i>Libros</a>
+                            className="btn btn-secondary dropdown-toggle"><i className="fa fa-product-hunt"></i>Books</a>
                         <ul className="collapse list-unstyled" id="productSubMenu">
                             <li>
-                                <Link to="/admin/productList"><i className="fa fa-clipboard"></i>Lista de libros</Link>
+                                <Link to="/admin/productList"><i className="fa fa-clipboard"></i>List of Books</Link>
                             </li>
                             <li>
-                                <Link to="/admin/newproduct"><i className="fa fa-plus"></i>Crear Libro</Link>
+                                <Link to="/admin/newproduct"><i className="fa fa-plus"></i>New Book</Link>
                             </li>
                         </ul>
                     </li>
@@ -26,13 +26,13 @@ export const Sidebar = () => {
                     {/*Botones de pedidos*/}
 
                     <li>
-                        <Link to="/orderList"><i className='fa fa-shopping-basket'></i>Ordenes</Link>
+                        <Link to="/orderList"><i className='fa fa-shopping-basket'></i>Orders</Link>
                     </li>
 
                     {/*Botones de usuarios*/}
 
                     <li>
-                        <Link to="/admin/users"><i className='fa fa-users'></i>Usuarios</Link>
+                        <Link to="/admin/users"><i className='fa fa-users'></i>Users</Link>
                     </li>
                     {/*Botones de reviesws*/}
 

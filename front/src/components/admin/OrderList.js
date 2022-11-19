@@ -11,7 +11,7 @@ import { allOrders, deleteOrder, clearErrors } from '../../actions/orderActions'
 import { DELETE_ORDER_RESET } from '../../constants/orderConstants'
 
 const OrdersList = () => {
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const alert = useAlert();
     const dispatch = useDispatch();
 
@@ -43,12 +43,12 @@ const OrdersList = () => {
         const data = {
             columns: [
                 {
-                    label: 'Fecha',
+                    label: 'Date',
                     field: 'fecha',
                     sort: 'asc'
                 },
                 {
-                    label: 'No. Orden',
+                    label: 'Order N°',
                     field: 'id',
                     sort: 'asc'
                 },
@@ -58,17 +58,17 @@ const OrdersList = () => {
                     sort: 'asc'
                 },
                 {
-                    label: 'Valor Total',
+                    label: 'Total',
                     field: 'valorTotal',
                     sort: 'asc'
                 },
                 {
-                    label: 'Estado',
+                    label: 'Status',
                     field: 'estado',
                     sort: 'asc'
                 },
                 {
-                    label: 'Acciones',
+                    label: 'Actions',
                     field: 'acciones',
                 },
             ],
@@ -76,22 +76,22 @@ const OrdersList = () => {
         }
 
         orders.forEach(order => {
-            var fecha= new Date(order.fechaCreacion).toLocaleDateString()
+            var fecha = new Date(order.fechaCreacion).toLocaleDateString()
             data.rows.push({
                 fecha: fecha,
                 id: order._id,
                 numItems: order.items.length,
                 valorTotal: `$${order.precioTotal}`,
-                estado: order.estado && String(order.estado).includes('Entregado')
+                estado: order.estado && String(order.estado).includes('Delivered')
                     ? <p style={{ color: 'green' }}>{order.estado}</p>
                     : <p style={{ color: 'red' }}>{order.estado}</p>,
                 acciones: <Fragment>
-                    <Link to={`/admin/order/${order._id}`} className="btn btn-primary py-1 px-2">
-                        <i className="fa fa-eye"></i>
+                    <Link to={`/admin/order/${order._id}`} className="fa-sharp fa-solid fa-file-pen icon-border" ></Link>
+                    <Link className="fa-sharp fa-solid fa-trash-can icon-border" onClick={() => deleteOrderHandler(order._id)}>
+
                     </Link>
-                    <button className="btn btn-danger py-1 px-2 ml-2" onClick={() => deleteOrderHandler(order._id)}>
-                        <i className="fa fa-trash"></i>
-                    </button>
+
+
                 </Fragment>
             })
         })
@@ -102,7 +102,7 @@ const OrdersList = () => {
 
     return (
         <Fragment>
-            <Metadata title={'Todos los Pedidos'} />
+            <Metadata title={'All Orders'} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -110,7 +110,7 @@ const OrdersList = () => {
 
                 <div className="col-12 col-md-10">
                     <Fragment>
-                        <h1 className="my-5">Todos los pedidos</h1>
+                        <h1 className="my-5">All Orders</h1>
 
                         {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> : (
                             <MDBDataTable
