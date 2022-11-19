@@ -9,8 +9,8 @@
     "prod": "export NODE_ENV=PRODUCTION&& nodemon back/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "build": "react-scripts build"
   },
   "author": "Jesus",
   "license": "ISC",
