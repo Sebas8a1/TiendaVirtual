@@ -83,7 +83,7 @@ const orderSchema = mongoose.Schema({
     estado:{
         type: String,
         required: true,
-        default:"Procesando"
+        default:"Processing"
     },
     fechaEnvio:{
         type:Date

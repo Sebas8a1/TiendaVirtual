@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const Sidebar = () => {
     return (
-        <div className="sidebar-wrapper">
+        <div className="sidebar-wrapper bg-secondary">
             <nav id="sidebar">
                 <ul className="list-unstyled components">
                     <li>
@@ -26,13 +26,13 @@ export const Sidebar = () => {
                     {/*Botones de pedidos*/}
 
                     <li>
-                        <Link to="/"><i className='fa fa-shopping-basket'></i>Ordenes</Link>
+                        <Link to="/orderList"><i className='fa fa-shopping-basket'></i>Ordenes</Link>
                     </li>
 
                     {/*Botones de usuarios*/}
 
                     <li>
-                        <Link to="/"><i className='fa fa-users'></i>Usuarios</Link>
+                        <Link to="/admin/users"><i className='fa fa-users'></i>Usuarios</Link>
                     </li>
                     {/*Botones de reviesws*/}
 

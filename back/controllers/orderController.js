@@ -61,15 +61,15 @@ exports.myOrders = catchAsyncErrors(async (req, res, next) => {
 exports.allOrders = catchAsyncErrors(async (req, res, next) => {
     const orders = await Order.find();
 
-    let totalAmount = 0;
+    let cantidadTotal = 0;
 
     orders.forEach(order => {
-        totalAmount += order.totalPrice;
+        cantidadTotal += order.precioTotal;
     });
 
     res.status(200).json({
         success: true,
-        totalAmount,
+        cantidadTotal,
         orders
     });
 });
@@ -78,16 +78,21 @@ exports.allOrders = catchAsyncErrors(async (req, res, next) => {
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id);
 
-    if (order.orderStatus === 'Delivered') {
+    if (order.estado === 'Delivered'&& req.body.estado==='Delivered') {
         return next(new ErrorHandler('You have already delivered this order', 400));
     }
 
-    order.orderItems.forEach(async item => {
-        await updateStock(item.product, item.cantidad);
-    });
+    
 
-    order.orderStatus = req.body.orderStatus;
-    order.deliveredAt = Date.now();
+   //Restamos del inventario
+   if (req.body.estado!=="Processing"){
+    order.items.forEach(async item => {
+        await updateStock(item.producto, item.cantidad)
+    })
+}
+
+    order.estado = req.body.estado;
+    order.fechaEnvio = Date.now();
 
     await order.save();
 
