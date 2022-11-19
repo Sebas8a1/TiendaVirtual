@@ -81,10 +81,10 @@ const UpdateUser = () => {
                                 <div className="form-group">
                                     <label htmlFor="name_field">Name</label>
                                     <input
-                                        type="name"
+                                        type="nombre"
                                         id="name_field"
                                         className="form-control"
-                                        name='name'
+                                        name='nombre'
                                         value={nombre}
                                         onChange={(e) => setNombre(e.target.value)}
                                     />
