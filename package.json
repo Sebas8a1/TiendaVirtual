@@ -7,7 +7,7 @@
     "start": "node back/server.js",
     "dev": "export NODE_ENV=DEVELOPMENT&& nodemon back/server.js",
     "prod": "export NODE_ENV=PRODUCTION&& nodemon back/server.js",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false && NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front"
+    "heroku-postbuild":"npm run build"
   },
   "author": "Jesus",
   "license": "ISC",
