@@ -31,7 +31,7 @@ if(process.env.NODE_ENV === "PRODUCTION"){
     })
 }
 
-// Middleware to handle errors
-app.use(errorMiddleware);
+//MiddleWares para manejar errores
+app.use(errorMiddleware)
 
-module.exports = app;   // <-- export the app
+module.exports=app
