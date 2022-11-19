@@ -237,7 +237,7 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
 // Update user profile => /api/v1/admin/user/:id
 exports.updateUser = catchAsyncErrors(async (req, res, next) => {
     const newUserData = {
-        name: req.body.name,
+        nombre: req.body.nombre,
         email: req.body.email,
         role: req.body.role
     }
