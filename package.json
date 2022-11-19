@@ -2,12 +2,12 @@
   "name": "supermastersciclo4",
   "version": "1.0.0",
   "description": "Proyecto del Ciclo 4 para MinTic UdeA",
-  "main": "back/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node back/server.js",
-    "dev": "export NODE_ENV=DEVELOPMENT&& nodemon back/server.js",
-    "prod": "export NODE_ENV=PRODUCTION&& nodemon back/server.js",
-    "heroku-postbuild":"NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front"
+    "dev": "export NODE_ENV=DEVELOPMENT&& nodemon back/server",
+    "prod": "export NODE_ENV=PRODUCTION&& nodemon back/server",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false && NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front"
   },
   "author": "Jesus",
   "license": "ISC",
