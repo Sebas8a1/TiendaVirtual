@@ -50,9 +50,9 @@ const Header = () => {
                         </Link>
                     <div className="dropdown-menu" aria-labelledby="dropDownMenu">
                         {user && user.role === 'admin' && (
-                        <Link className="dropdown-item" to="/admin/dashboard">Adm. de Productos</Link>
+                        <Link className="dropdown-item" to="/admin/dashboard">Panel Administracion</Link>
                         )}
-                        <Link className="dropdown-item" to="/">Pedidos</Link>
+                        <Link className="dropdown-item" to="/myOrders">My Orders</Link>
                         <Link className="dropdown-item" to="/me">Mi Cuenta</Link>
                         <Link className="dropdown-item" to="/" onClick={ logoutHandler} >Cerrar Sesión</Link>
                     </div>

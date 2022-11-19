@@ -98,13 +98,13 @@ const Cart = () => {
 
                         <div className="col-12 col-lg-3 my-4">
                             <div id="order_summary">
-                                <h4>Total de la Compra</h4>
+                                <h4>Total Amount</h4>
                                 <hr />
                                 <p>Products: <span className="order-summary-values">{cartItems.reduce((acc, item) => (acc + Number(item.quantity)), 0).toFixed(2)}</span></p>
                                 <p>Subtotal: <span className="order-summary-values">${cartItems.reduce((acc, item) => (acc + Number(item.quantity * item.precio)), 0).toFixed(2)}</span></p>
 
                                 <hr />
-                                <button id="checkout_btn" className="btn btn-primary btn-block" onClick={checkOutHandler}>Comprar!</button>
+                                <button id="login_button" type="submit" className="button py-2" onClick={checkOutHandler}>Purchase!</button>
                             </div>
                         </div>
                     </div>

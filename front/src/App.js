@@ -6,7 +6,7 @@ import Footer from './components/layout/Footer';
 import Home from './components/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ProductDetails } from './components/products/ProductDetails';
-import { Dashboard } from './components/admin/Dashboard';
+import { Dashboard } from './components/admin/Dashboard'
 import { Productlist } from './components/admin/Productlist';
 import NewProduct from './components/admin/NewProduct';
 import Cart from './components/cart/Cart';
@@ -30,7 +30,8 @@ import UsersList from './components/admin/UserList';
 import UpdateUser from './components/admin/UpdateUser';
 import OrdersList from './components/admin/OrderList';
 import ProcessOrder from './components/admin/ProccessOrder';
-
+import { ListOrder } from './components/order/ListOrder';
+import { OrderDetails } from './components/order/OrderDetails';
 
 
 
@@ -48,19 +49,8 @@ function App() {
         <Header />
         <div className="container container-fluid">
           <Routes >
-            <Route path="/Home" element={<Home />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/admin/dashboard" element={<ProtectedRoutes isAdmin={true}><Dashboard /></ProtectedRoutes>} />
-            <Route path="/admin/productList" element={<ProtectedRoutes><Productlist /></ProtectedRoutes>} />
-            <Route path="/admin/newproduct" element={<ProtectedRoutes><NewProduct /></ProtectedRoutes>} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/admin/edit/:id" element={<ProtectedRoutes isAdmin={true}><EditProduct /></ProtectedRoutes>} />
-            <Route path="/shipping" element={<ProtectedRoutes ><Shipping/></ProtectedRoutes>} />
-            <Route path="/payment" element={<ProtectedRoutes ><Payment/></ProtectedRoutes>} />
-            <Route path="/success" element={<ProtectedRoutes ><Success/></ProtectedRoutes>} />
-            <Route path="/order/confirm" element={<ProtectedRoutes ><ConfirmOrder/></ProtectedRoutes>} />
-            <Route path="/search/:keyword" element={<Home />} />
+
+            {/*Users*/}
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/me/update" element={<ProtectedRoutes><UpdateProfile /></ProtectedRoutes>} />
@@ -68,10 +58,36 @@ function App() {
             <Route path="/password/update" element={<ProtectedRoutes><UpdatePassword /></ProtectedRoutes>} />
             <Route path="/password/forgot" element={<ForgotPassword />} />
             <Route path="/password/reset/:token" element={<NewPassword />} />
+
+            {/*Admin*/}
+            <Route path="/admin/dashboard" element={<ProtectedRoutes isAdmin={true}><Dashboard /></ProtectedRoutes>} />
+            <Route path="/admin/productList" element={<ProtectedRoutes><Productlist /></ProtectedRoutes>} />
+            <Route path="/admin/newproduct" element={<ProtectedRoutes><NewProduct /></ProtectedRoutes>} />
+            <Route path="/admin/edit/:id" element={<ProtectedRoutes isAdmin={true}><EditProduct /></ProtectedRoutes>} />
             <Route path="/admin/users" element={<ProtectedRoutes isAdmin={true}><UsersList /></ProtectedRoutes>} />
             <Route path="/admin/user/:id" element={<ProtectedRoutes isAdmin={true}><UpdateUser /></ProtectedRoutes>} />
+
+            {/*Order*/}
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/shipping" element={<ProtectedRoutes ><Shipping/></ProtectedRoutes>} />
+            <Route path="/payment" element={<ProtectedRoutes ><Payment/></ProtectedRoutes>} />
+            <Route path="/success" element={<ProtectedRoutes ><Success/></ProtectedRoutes>} />
+            <Route path="/order/confirm" element={<ProtectedRoutes ><ConfirmOrder/></ProtectedRoutes>} />
             <Route path="/orderList" element={<ProtectedRoutes isAdmin={true}><OrdersList /></ProtectedRoutes>} />
             <Route path="/admin/order/:id" element={<ProtectedRoutes isAdmin={true}><ProcessOrder /></ProtectedRoutes>} />
+            <Route path="/myOrders" element={<ProtectedRoutes><ListOrder /></ProtectedRoutes>} />
+            <Route path="/order/:id" element={<ProtectedRoutes><OrderDetails /></ProtectedRoutes>} />
+
+            {/*Products*/}
+            <Route path="/product/:id" element={<ProductDetails />} />
+
+
+            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/search/:keyword" element={<Home />} />
+            
+            
+            
 
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>

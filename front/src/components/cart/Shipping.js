@@ -39,15 +39,15 @@ const submitHandler=(e)=>{
     return (
         <Fragment>
 
-            <Metadata title={'Información de envio'} />
+            <Metadata title={'Shipping Information'} />
             <CheckoutSteps shipping/>
             
             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler}>
-                        <h1 className="mb-4">Información de envio</h1>
+                        <h1 className="mb-4">Shipping Information</h1>
                         <div className="form-group">
-                            <label htmlFor="address_field">Dirección</label>
+                            <label htmlFor="address_field">Address</label>
                             <input
                                 type="text"
                                 id="address_field"
@@ -59,7 +59,7 @@ const submitHandler=(e)=>{
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="phone_field">Telefono</label>
+                            <label htmlFor="phone_field">Phone N°</label>
                             <input
                                 type="phone"
                                 id="phone_field"
@@ -71,7 +71,7 @@ const submitHandler=(e)=>{
                         </div>
 
                         <div className="form-group">
-                            <label htmlFor="country_field">Departamento</label>
+                            <label htmlFor="country_field">Department</label>
                             <select
                                 id="country_field"
                                 className="form-control"
@@ -92,7 +92,7 @@ const submitHandler=(e)=>{
 
 
                             <div className="form-group">
-                                <label htmlFor="city_field">Ciudad</label>
+                                <label htmlFor="city_field">City</label>
                                 <select
                                     id="city_field"
                                     className="form-control"
@@ -118,7 +118,7 @@ const submitHandler=(e)=>{
                             type="submit"
                             className="btn btn-block py-3"
                         >
-                            CONTINUAR
+                            Continue
                         </button>
                     </form>
                 </div>

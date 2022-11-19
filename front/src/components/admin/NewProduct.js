@@ -129,7 +129,7 @@ const NewProduct = () => {
 
     return (
         <Fragment>
-            <Metadata title={'Nuevo Producto'} />
+            <Metadata title={'New Book'} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -139,10 +139,10 @@ const NewProduct = () => {
                     <Fragment>
                         <div className="wrapper my-5">
                             <form className="shadow-lg" onSubmit={submitHandler} encType='application/json'>
-                                <h1 className="mb-4">Nuevo libro</h1>
+                                <h1 className="mb-4">New Book</h1>
 
                                 <div className="form-group">
-                                    <label htmlFor="name_field">Nombre</label>
+                                    <label htmlFor="name_field">Name</label>
                                     <input
                                         type="text"
                                         id="name_field"
@@ -154,7 +154,7 @@ const NewProduct = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="price_field">Precio</label>
+                                    <label htmlFor="price_field">Price</label>
                                     <input
                                         type="number"
                                         id="price_field"
@@ -167,7 +167,7 @@ const NewProduct = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="description_field">Descripcion</label>
+                                    <label htmlFor="description_field">Description</label>
                                     <textarea className="form-control" id="description_field" rows="8"
                                         value={descripcion}
                                         onChange={(e) => setDescripcion(e.target.value)}
@@ -177,7 +177,7 @@ const NewProduct = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="category_field">Categoria</label>
+                                    <label htmlFor="category_field">Category</label>
                                     <select id="categoria_field" className='form-control'
                                         value={categoria}
                                         onChange={(e) => setCategoria(e.target.value)} >
@@ -190,7 +190,7 @@ const NewProduct = () => {
                                     </select>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="stock_field">Inventario</label>
+                                    <label htmlFor="stock_field">Stock</label>
                                     <input
                                         type="number"
                                         id="stock_field"
@@ -202,7 +202,7 @@ const NewProduct = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="seller_field">Vendedor</label>
+                                    <label htmlFor="seller_field">Seller</label>
                                     <input
                                         type="text"
                                         id="seller_field"
@@ -214,7 +214,7 @@ const NewProduct = () => {
                                 </div>
 
                                 <div className='form-group'>
-                                    <label>Imagenes</label>
+                                    <label>Images</label>
 
                                     <div className='custom-file'>
                                         <input
@@ -226,7 +226,7 @@ const NewProduct = () => {
                                             multiple
                                         />
                                         <label className='custom-file-label' htmlFor='customFile'>
-                                            Seleccione Imagen
+                                            Select Image
                                         </label>
                                     </div>
                                     {imagenPreview.map(img => (
@@ -242,7 +242,7 @@ const NewProduct = () => {
                                     className="button py-2"
                                     disabled={loading ? true : false}
                                 >
-                                    Crear
+                                    Save
                                 </button>
 
                             </form>

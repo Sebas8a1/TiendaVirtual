@@ -17,9 +17,10 @@ export const ProcessOrder = () => {
     const dispatch = useDispatch();
 
     const { loading, order = {} } = useSelector(state => state.orderDetails)
-    const { envioInfo, items, pagoInfo, user, precioTotal, estado : estadoOrder } = order
+    const { envioInfo, items,user, pagoInfo, precioTotal, estado : estadoOrder } = order
     const { error, isUpdated } = useSelector(state => state.order)
     const [estado, setEstado] = useState(estadoOrder);
+    
 
     const orderId = params.id;
 
@@ -34,7 +35,7 @@ export const ProcessOrder = () => {
 
 
         if (isUpdated) {
-            alert.success('Orden Actualizada Correctamente');
+            alert.success('Successful Update');
             dispatch({ type: UPDATE_ORDER_RESET })
         }
 
@@ -49,11 +50,11 @@ export const ProcessOrder = () => {
     }
 
     const detallesEnvio = envioInfo && `${envioInfo.direccion}, ${envioInfo.ciudad}, ${envioInfo.departamento}`
-    const isPaid = pagoInfo && pagoInfo.estado === 'Aceptado' ? true : false
+    const isPaid = pagoInfo && pagoInfo.estado === 'Successful payment' ? true : false
 
     return (
         <Fragment>
-            <Metadata title={`Procesar Orden # ${order && order._id}`} />
+            <Metadata title={`Checkout Order # ${order && order._id}`} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -65,28 +66,28 @@ export const ProcessOrder = () => {
                             <div className="row d-flex justify-content-around">
                                 <div className="col-12 col-lg-7 order-details">
 
-                                    <h2 className="my-5">Orden # {order._id}</h2>
+                                    <h2 className="my-5">Order N° {order._id}</h2>
 
-                                    <h4 className="mb-4">Información del envio</h4>
-                                    <p><b>Nombre:</b> {user && user.nombre}</p>
-                                    <p><b>Telefono:</b> {envioInfo && envioInfo.telefono}</p>
-                                    <p className="mb-4"><b>Direccón: </b>{detallesEnvio}</p>
-                                    <p><b>Valor Total:</b> ${precioTotal}</p>
+                                    <h4 className="mb-4">Shipping Information</h4>
+                                    <p><b>Name:</b> {user && user.nombre}</p>
+                                    <p><b>Phone N°:</b> {envioInfo && envioInfo.telefono}</p>
+                                    <p className="mb-4"><b>Address: </b>{detallesEnvio}</p>
+                                    <p><b>Total Amount:</b> ${precioTotal}</p>
 
                                     <hr />
 
-                                    <h4 className="my-4">Pago</h4>
-                                    <p className={isPaid ? "greenColor" : "redColor"}><b>{isPaid ? "PAGO" : "PENDIENTE DE PAGO"}</b></p>
+                                    <h4 className="my-4">Payment</h4>
+                                    <p className={isPaid ? "greenColor" : "redColor"}><b>{isPaid ? "Successful payment " : "Pending"}</b></p>
 
-                                    <h4 className="my-4">No. Transacción</h4>
+                                    <h4 className="my-4">Transaction N°</h4>
                                     <p><b>{pagoInfo && pagoInfo.id}</b></p>
 
-                                    <h4 className="my-4">Estado de la Orden:</h4>
-                                    <p className={order.estado && String(order.estado).includes('Entregado') ? "greenColor" : "redColor"} ><b>{estado}</b></p>
+                                    <h4 className="my-4">Status Order:</h4>
+                                    <p className={order.estado && String(order.estado).includes('Delivered') ? "greenColor" : "redColor"} ><b>{estado}</b></p>
 
 
 
-                                    <h4 className="my-4">Items comprados:</h4>
+                                    <h4 className="my-4">Items:</h4>
 
                                     <hr />
                                     <div className="cart-item my-1">
@@ -106,7 +107,7 @@ export const ProcessOrder = () => {
                                                 </div>
 
                                                 <div className="col-4 col-lg-3 mt-4 mt-lg-0">
-                                                    <p>{item.cantidad} Unidad(es)</p>
+                                                    <p>{item.cantidad} Quantity</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -115,7 +116,7 @@ export const ProcessOrder = () => {
                                 </div>
 
                                 <div className="col-12 col-lg-3 mt-5">
-                                    <h4 className="my-4">Estado</h4>
+                                    <h4 className="my-4">Status</h4>
 
                                     <div className="form-group">
                                         <select
@@ -131,14 +132,14 @@ export const ProcessOrder = () => {
                                     </div>
 
                                     <button className="btn btn-primary btn-block" onClick={() => updateOrderHandler(order._id)}>
-                                        Actualizar Estado
+                                        Update Status
                                     </button>
                                 </div>
 
                             </div>
                         )}
                     </Fragment>
-                    <button className="btn ml-4" id="login_btn" onClick={() => navigate(-1)}>Atrás</button>
+                    <button className="btn ml-4" id="login_btn" onClick={() => navigate(-1)}>Back</button>
                 </div>
             </div>
 

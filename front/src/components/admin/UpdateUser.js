@@ -66,7 +66,7 @@ const UpdateUser = () => {
 
     return (
         <Fragment>
-            <Metadata title={`Actualizar Usuario`} />
+            <Metadata title={`Update User`} />
             <div className="row">
                 <div className="col-12 col-md-2">
                     <Sidebar />
@@ -76,10 +76,10 @@ const UpdateUser = () => {
                     <div className="row wrapper">
                         <div className="col-10 col-lg-5">
                             <form className="shadow-lg" onSubmit={submitHandler}>
-                                <h1 className="mt-2 mb-5">Actualizar usuario</h1>
+                                <h1 className="mt-2 mb-5">Update User</h1>
 
                                 <div className="form-group">
-                                    <label htmlFor="name_field">Nombre</label>
+                                    <label htmlFor="name_field">Name</label>
                                     <input
                                         type="name"
                                         id="name_field"
@@ -112,12 +112,14 @@ const UpdateUser = () => {
                                         value={role}
                                         onChange={(e) => setRole(e.target.value)}
                                     >
-                                        <option value="user">Usuario Regular</option>
-                                        <option value="admin">Administrador</option>
+                                        <option value="user">User</option>
+                                        <option value="admin">Administrator</option>
                                     </select>
                                 </div>
 
-                                <button type="submit" className="btn update-btn btn-block mt-4 mb-3" >Actualizar</button>
+                                <button id="login_button" type="submit" className="button py-2" >Update</button>
+
+                              
                             </form>
                         </div>
                     </div>
