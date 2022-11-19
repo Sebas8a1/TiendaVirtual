@@ -1,7 +1,7 @@
 const moongose = require('mongoose');
 
 const connectDB = () => {
-    moongose.connect(process.env.DB_LOCAL_URI, {
+    moongose.connect(process.env.DB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(con => {

@@ -25,12 +25,15 @@ import { Shipping } from './components/cart/Shipping';
 import { ConfirmOrder } from './components/cart/ConfirmOrder';
 import { Payment } from './components/cart/Payment';
 import { Success } from './components/cart/Success';
+import { useSelector } from 'react-redux';
 
 
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
+
+  const{user,isAuthenticated,loading}=useSelector(state=>state.auth)
 
 
   return (
@@ -62,7 +65,9 @@ function App() {
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
         </div>
-        <Footer />
+        {!loading && (!isAuthenticated || user.role!=="admin") &&(
+          <Footer/>
+        )}
       </div>
     </Router>
 
