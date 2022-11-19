@@ -5,11 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node back/server.js",
-    "dev": "set NODE_ENV=DEVELPMENT&& nodemon back/server.js",
-    "prod": "set NODE_ENV=PRODUCTION&& nodemon back/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "dev": "export NODE_ENV=DEVELOPMENT&& nodemon back/server",
+    "prod": "export NODE_ENV=PRODUCTION&& nodemon back/server",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false && NODE_OPTIONS=--openssl-legacy-provider && npm install --force --prefix front && npm run build --prefix front"
   },
   "author": "Jesus",
   "license": "ISC",

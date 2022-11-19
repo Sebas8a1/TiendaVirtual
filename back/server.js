@@ -31,6 +31,6 @@ api_secret:process.env.CLOUDINARY_API_SECRET
 
 
 // Configuracion del puerto segun archivo de configuracion
-const server= app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT} in mode ${process.env.NODE_ENV}.`);
-});
+const server=app.listen(process.env.PORT, () => {
+    console.log(`Servidor iniciado en el puerto: ${process.env.PORT} en modo: ${process.env.NODE_ENV}`)
+})
