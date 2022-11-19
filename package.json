@@ -2,7 +2,7 @@
   "name": "supermastersciclo4",
   "version": "1.0.0",
   "description": "Proyecto del Ciclo 4 para MinTic UdeA",
-  "main": "server.js",
+  "main": "back/server.js",
   "scripts": {
     "start": "node back/server.js",
     "dev": "export NODE_ENV=DEVELOPMENT&& nodemon back/server.js",
