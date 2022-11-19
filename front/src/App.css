@@ -536,26 +536,27 @@ footer {
 
 .sidebar-wrapper {
   display: flex;
-  width: 100%;
+  width: 200px;
   align-items: stretch;
   min-height: 100vh;
   font-weight: normal;
 
   margin-top: 0;
+  margin-left: -130px;
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 10;
+  transition: all 0.3s;
 }
 #sidebar {
   min-width: 100%;
   max-width: 100%;
-  background: #232f3e;
+  background: #6c757d;
   color: #fff;
   transition: all 0.3s;
 }
 #sidebar.active {
-  margin-left: -250px;
+  margin-left: 0px;
 }
 
 #sidebar .sidebar-header {

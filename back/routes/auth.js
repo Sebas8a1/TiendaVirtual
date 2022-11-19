@@ -15,6 +15,9 @@ router.route('/login').post(loginUser);
 router.route('/password/forgot').post(forgotPassword);
 router.route('/password/reset/:token').put(resetPassword);
 
+router.route('/admin/allUsers').get(isAuthenticatedUser,authorizeRoles('admin'),allUsers);
+router.route('/admin/updateUser/:id').put(isAuthenticatedUser,authorizeRoles('admin'),updateUser);
+
 // router.get('/logout', logout); // <-- logout a user
 router.route('/logout').get(isAuthenticatedUser, logout);
 
