@@ -240,7 +240,7 @@ export const EditProduct = () => {
                                     </div>
 
                                     {oldImagen && oldImagen.map(img => (
-                                        <img key={img} src={"../"+img.url} alt={img.url} className="mt-3 mr-2" width="55" height="52" />
+                                        <img key={img} src={"../"+img.url} alt="imagen del libro" className="mt-3 mr-2" width="55" height="52" />
                                     ))}
 
                                     {imagenPreview.map(img => (
