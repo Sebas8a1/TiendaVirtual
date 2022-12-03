@@ -102,13 +102,14 @@ export const Payment = () => {
                                 id="card_cvc_field"
                                 className="form-control"
                             />
+                            <br/>
                         </div>
 
 
                         <button
-                            id="pay_btn"
+                            id="login_button"
                             type="submit"
-                            className="btn btn-block py-3"
+                            className="button py-2"
                         >
                             Purchase ${` - ${orderInfo && orderInfo.precioTotal}`}
                         </button>

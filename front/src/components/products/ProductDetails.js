@@ -79,7 +79,7 @@ export const ProductDetails = () => {
                                 <input type="number" className="form-control-sm count d-inline" value={quantity} readOnly />
                                 <span className="btn btn-primary plus" onClick={increaseQty}>+</span>
                             </div>
-                            <button type="button" id="cart_btn" className="btn btn-primary d-inline ml-4" onClick={addToCart}>Add to Cart</button>
+                            <button type="submit" id="login_button" className="button d-inline ml-4" onClick={addToCart}>Add to Cart</button>
                             <hr />
                             <p>Status: <span id="stock_status" className={productById.stock > 0 ? 'greenColor' : 'redColor'}>{productById.stock > 0 ? 'In Stock' : 'Out of Stock'}</span></p>
                             <hr />
@@ -88,7 +88,7 @@ export const ProductDetails = () => {
                             }</p>
                             <hr />
                             <p id="product_seller mb-3">Sold by: <strong>{productById.vendedor}</strong></p>
-                            <button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal">
+                            <button id="login_button" type="submit" className="button mt-4" data-toggle="modal" data-target="#ratingModal">
                                 Submit Your Review
                             </button>
                             <div className="row mt-2 mb-5">

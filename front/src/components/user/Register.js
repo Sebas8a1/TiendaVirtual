@@ -62,11 +62,11 @@ export const Register = () => {
         <Fragment>
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>:(
                 <Fragment>
-            <Metadata title={'Registrar Usuario'} />
+            <Metadata title={'Create account'} />
             <div className="row wrapper">
                 <div className="col-10 col-lg-5">
                     <form className="shadow-lg" onSubmit={submitHandler} encType='multipart/form-data'>
-                        <h1 className="mb-3">Registrar</h1>
+                        <h1 className="mb-3">Create account</h1>
 
                         <div className="form-group">
                             <label htmlFor="name_field">Full name</label>
@@ -115,7 +115,7 @@ export const Register = () => {
                                         <img
                                             src={avatarPreview}
                                             className="rounded-circle"
-                                            alt="Vistar Previa del Avatar"></img>
+                                            alt="Avatar preview"></img>
                                     </figure>
                                 </div>
                                 <div className='custom-file'>
@@ -129,19 +129,19 @@ export const Register = () => {
 
                                     />
                                     <label className='custom-file-label' htmlFor='customFile'>
-                                        Escoger Avatar
+                                        Choose Avatar
                                     </label>
                                 </div>
                             </div>
                         </div>
 
                         <button
-                            id="register_button"
+                            id="login_button"
                             type="submit"
-                            className="btn btn-block py-3"
+                            className="button py-2"
 
                         >
-                            REGISTRAR
+                            Create
                         </button>
                     </form>
                 </div>

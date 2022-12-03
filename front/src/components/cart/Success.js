@@ -15,7 +15,7 @@ export const Success = () => {
 
                     {/*<h2>Su orden ha sido registrada con éxito, pronto estaremos en contacto</h2>*/}
 
-                    <Link to="/">Volver al inicio</Link>
+                    <Link to="/">Back to Home</Link>
                 </div>
 
             </div>

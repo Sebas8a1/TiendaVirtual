@@ -27,14 +27,14 @@ export const Login = () => {
         <Fragment>
             {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>:(
             <Fragment>
-            <Metadata title={"Inicie Sesión"} />
+            <Metadata title={"Sing in"} />
             <div className='row wrapper'>
                 <div className='col-12 col-lg-5'>
                     <form className='shadow-lg' onSubmit={submitHandler}>
-                        <h1 className='mb-3'>Inicio de Sesión</h1>
+                        <h1 className='mb-3'>Sing in</h1>
                         {/*Campo para colocar correo*/}
                         <div className='form-group'>
-                            <label htmlFor='email_field'>Correo Electronico</label>
+                            <label htmlFor='email_field'>Email</label>
                             <input type="email"
                             id="email_field"
                             className='form-control'
@@ -45,7 +45,7 @@ export const Login = () => {
                         <br />
                         {/*Campo para colocar contraseña*/}
                         <div className='form-group'>
-                            <label htmlFor='password_field'>Contraseña</label>
+                            <label htmlFor='password_field'>Password</label>
                             <input type="password" 
                             id="password field" 
                             className='form-control'
@@ -54,13 +54,13 @@ export const Login = () => {
                             ></input>
                         </div>
                         <br />
-                        <Link to="/password/forgot" className='float-right mb-4'>Olvidó su contraseña?</Link>
+                        <Link to="/password/forgot" className='float-right mb-4'>Forgot your password?</Link>
                         <br />
                         {/*Boton Iniciar sesión*/}
                         <button id="view_btn" type="submit" className='button mt-5' >Login</button>
                         <br />
                         <br />
-                        <Link to="/register" className='float-right mt-3'>Usuario Nuevo? Registrese aqui</Link>
+                        <Link to="/register" className='float-right mt-3'>New user? Create your account here</Link>
 
                     </form>
                 </div>

@@ -8,53 +8,53 @@ export const Footer = () => {
                 <div className="row">
                     <div className="col-12 col-md-3">
                         <h4 className="l-heading">
-                            <i className="fas fa-phone"></i> Contacto
+                            <i className="fas fa-phone"></i> Contact
                         </h4>
                         <p className="text-justify">
-                            <strong>Telefono:</strong> 1234567890
+                            <strong>Phone:</strong> 1234567890
                         </p>
                         <p className="text-justify">
-                            <strong>Email:</strong>
-                            <a href="mailto:" className="text-white">
+                            <strong>Email:</strong> supermasters@bookstore.com
+                            <a href="mailto:supermasters@bookstore.com" className="text-white">
 
                             </a>
                         </p>
                         <p className="text-justify">
-                            <strong>Direccion:</strong> 1234, Calle, Ciudad, Estado, Pais
+                            <strong>Address:</strong> 1234, Calle, Ciudad, Estado, Pais
                         </p>
                     </div>
 
                     <div className="col-12 col-md-3">
                         <h4 className="l-heading">
-                            <i className="fas fa-info-circle"></i> Informacion
+                            <i className="fas fa-info-circle"></i> Information
                         </h4>
                         <div className="d-flex flex-column flex-wrap">
-                            <a href="/"  className="footer-link">Sobre Nosotros</a>
-                            <a href="/"  className="footer-link">Politicas de Privacidad</a>
-                            <a href="/"  className="footer-link">Terminos y Condiciones</a>
-                            <a href="/"  className="footer-link">Ayuda</a>
+                            <a href="/"  className="footer-link">About Us</a>
+                            <a href="/"  className="footer-link">Privacy Notice</a>
+                            <a href="/"  className="footer-link">Conditions of Use</a>
+                            <a href="/"  className="footer-link">Help</a>
                         </div>
                     </div>
 
                     <div className="col-12 col-md-3">
                         <h4 className="l-heading">
-                            <i className="fas fa-exchange-alt"></i> Politicas
+                            <i className="fas fa-exchange-alt"></i> Policies
                         </h4>
                         <div className="d-flex flex-column flex-wrap">
-                            <a href="/"  className="footer-link">Politicas de Envio</a>
-                            <a href="/"  className="footer-link">Politicas de Devolucion</a>
-                            <a href="/"  className="footer-link">Politicas de Pago</a>
-                            <a href="/"  className="footer-link">Politicas de Seguridad</a>
+                            <a href="/"  className="footer-link">Shipping Policy</a>
+                            <a href="/"  className="footer-link">Return Policy</a>
+                            <a href="/"  className="footer-link">Payment Policy</a>
+                            <a href="/"  className="footer-link">Security Policy</a>
                         </div>
                     </div>
 
                     <div className="col-12 col-md-3">
                         <h4 className="l-heading">
-                            <i className="fas fa-envelope"></i> Suscribete
+                            <i className="fas fa-envelope"></i> Suscribe
                         </h4>
                         <form action="/">
                             <div className="input-group">
-                                <input type="text" className="form-control" placeholder="Ingrese su email" required/>
+                                <input type="text" className="form-control" placeholder="Enter your email" required/>
                                 <div className="input-group-append">
                                     <button className="btn btn-success">
                                         <i className="fas fa-arrow-right"></i>
@@ -64,7 +64,7 @@ export const Footer = () => {
                         </form>
                         <div className="mt-4">
                             <h5 className="l-heading">
-                                <i className="fas fa-paper-plane"></i> Sigueme
+                                <i className="fas fa-paper-plane"></i> Follow me
                             </h5>
                             <div className="d-flex flex-row">
                                 <a href="/" className="social-link">

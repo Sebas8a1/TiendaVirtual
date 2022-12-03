@@ -19,7 +19,11 @@ export const Profile = () => {
                             <figure className='avatar avatar-profile'>
                                 <img className="rounded-circle img-fluid" src={user.avatar.url} alt={user.nombre} />
                             </figure>
-                            <Link to="/me/update" id="edit_profile" className="btn btn-primary btn-block my-5">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <Link to="/me/update" id="login_button" className="button my-5">
                                 Edit Profile
                             </Link>
                         </div>
@@ -35,7 +39,7 @@ export const Profile = () => {
                             <p>{String(user.createdAt).substring(0, 10)}</p>
 
                             {user.role !== 'admin' && (
-                                <Link to="/orders/me" className="btn btn-danger btn-block mt-3">
+                                <Link to="/myOrders" className="btn btn-danger btn-block mt-3">
                                     My orders
                                 </Link>
                             )}

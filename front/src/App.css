@@ -285,7 +285,7 @@ footer {
 }
 
 #card_item_price {
-  color: #febd69;
+  color: #2551df;
   font-weight: bold;
   font-size: 1.4rem;
 }
@@ -439,7 +439,7 @@ footer {
 }
 
 .active-step {
-  background: #fa9c23;
+  background: #2551df;
   color: #fff;
 }
 
@@ -447,7 +447,7 @@ footer {
   float: left;
   width: 0;
   border-top: 20px solid transparent;
-  border-left: 15px solid #fa9c23;
+  border-left: 15px solid #2551df;
   border-bottom: 20px solid transparent;
   margin-left: -1px;
 }
@@ -455,9 +455,9 @@ footer {
 .triangle2-active {
   width: 0;
   float: left;
-  border-top: 20px solid #fa9c23;
+  border-top: 20px solid #2551df;
   border-left: 15px solid #fff;
-  border-bottom: 20px solid #fa9c23;
+  border-bottom: 20px solid #2551df;
   margin-right: -1px;
 }
 
@@ -520,16 +520,18 @@ footer {
 
 /* Pagination */
 .page-item.active .page-link {
-  background-color: #fa9c23;
-  border-color: #fa9c23;
+  background-color: #E2E5E5;
+  border-color: #E2E5E5;
+  color: black;
 }
 
 .page-link {
-  color: #fa9c23;
+  color: black;
 }
 
 .page-link:hover {
-  color: #fa9c23;
+  background-color: #2551df;
+  color: white;
 }
 
 /* Admin Sidebar */
