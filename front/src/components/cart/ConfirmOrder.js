@@ -83,7 +83,7 @@ export const ConfirmOrder = () => {
                         <p>Total: <span className="order-summary-values">${precioTotal}</span></p>
 
                         <hr />
-                        <button id="checkout_btn" className="btn btn-primary btn-block" onClick={processToPayment}>Proceed to Checkout</button>
+                        <button id="login_button"  type="submit" className="button" onClick={processToPayment}>Proceed to Checkout</button>
                     </div>
                 </div>
 

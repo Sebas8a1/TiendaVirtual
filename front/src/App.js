@@ -91,6 +91,7 @@ function App() {
 
             <Route path="*" element={<h2>Not Found</h2>} />
           </Routes>
+          
         </div>
         {!loading && (!isAuthenticated || user.role!=="admin") &&(
           <Footer/>

@@ -84,7 +84,7 @@ const NewProduct = () => {
         }
         if (success) {
             navigate("/admin/dashboard")
-            alert.success("Producto registrado con exito")
+            alert.success("Product registered successfully")
             dispatch({ type: NEW_PRODUCT_RESET })//Para que se limpie la pantalla
 
         }

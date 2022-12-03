@@ -41,7 +41,7 @@ const UpdateUser = () => {
         }
 
         if (isUpdated) {
-            alert.success('Usuario actualizado correctamente')
+            alert.success('User updated successfully')
 
             navigate('/admin/users')
 

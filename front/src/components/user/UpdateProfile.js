@@ -113,10 +113,10 @@ export const UpdateProfile = () => {
                         <button
                             id="login_button"
                             type="submit"
-                            className="btn update-btn btn-block mt-4 mb-3"
+                            className="button mt-4 mb-3"
                             disabled={loading ? true : false}
                         >
-                            UPDATE
+                            Update
                         </button>
 
                     </form>

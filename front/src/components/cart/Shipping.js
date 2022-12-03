@@ -112,11 +112,12 @@ const submitHandler=(e)=>{
                                 </select>
                             </div>
                         </div>
+                        <br/>
 
                         <button
-                            id="shipping_btn"
+                            id="login_button"
                             type="submit"
-                            className="btn btn-block py-3"
+                            className="button py-2"
                         >
                             Continue
                         </button>

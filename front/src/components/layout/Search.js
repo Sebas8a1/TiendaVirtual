@@ -21,7 +21,7 @@ export const Search = () => {
     <form onSubmit={searchHandler}>
     
     <div className="input-group">
-                        <input type="text" id="search_field" class="form-control" placeholder="Buscar productos..." 
+                        <input type="text" id="search_field" class="form-control" placeholder="Search Products..." 
                         onChange={(e)=> setKeyword(e.target.value)}
                         />
                         <div class="input-group-append">

@@ -106,7 +106,7 @@ export const EditProduct = () => {
             dispatch(clearErrors)
         }
         if (isUpdated) {
-            alert.success("Producto actualizado correctamente")
+            alert.success("Product updated successfully")
             navigate("/admin/dashboard")
             dispatch({ type: UPDATE_PRODUCT_RESET })
         }
